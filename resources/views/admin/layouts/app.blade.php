@@ -7,6 +7,11 @@
     <title>@yield('title', 'Admin') - TEQRIOUS Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+    <meta name="theme-color" content="#001348">
     <style>
         :root { --primary: #001348; --secondary: #aa134a; --third: #cb9430; --sidebar-width: 260px; }
         body { background: #f4f6f9; }

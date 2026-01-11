@@ -1,2 +1,19 @@
+# robots.txt for TEQRIOUS
 User-agent: *
-Disallow:
+Allow: /
+
+# Disallow admin and auth routes
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /login
+Disallow: /register
+Disallow: /password
+Disallow: /sanctum
+
+# Allow CSS and JS
+Allow: /css/
+Allow: /js/
+Allow: /img/
+
+# Sitemap location
+Sitemap: https://teqrious.com/sitemap.xml
