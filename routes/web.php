@@ -63,4 +63,4 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
 
  
  
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
