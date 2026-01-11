@@ -16,6 +16,11 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\SubsidiaryQuoteController;
 use App\Http\Controllers\Admin\SiteSettingController;
+use App\Http\Controllers\Auth\LoginController;
+
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'login'])->name('login.post')->middleware('guest');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
 // Frontend Routes
 Route::get('/', [FrontendController::class, 'index'])->name('home');
@@ -56,4 +61,6 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
     Route::delete('settings/{setting}', [SiteSettingController::class, 'destroy'])->name('settings.destroy');
 });
 
-require __DIR__.'/auth.php';
+ 
+ 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
