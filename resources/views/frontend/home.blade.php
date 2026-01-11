@@ -83,7 +83,9 @@
 .btn-cta:hover{background:transparent;color:#fff;transform:translateY(-3px);box-shadow:0 10px 30px rgba(203,148,48,0.4)}
 .section{padding:100px 0}.section-title{font-size:2.5rem;font-weight:800;color:var(--primary);margin-bottom:1rem}
 .section-title::after{content:'';display:block;width:60px;height:4px;background:linear-gradient(90deg,var(--third),var(--secondary));margin-top:15px;border-radius:2px}
-.section-title.text-center::after{margin-left:auto;margin-right:auto}.section-subtitle{color:#666;font-size:1.1rem;margin-bottom:50px}
+.section-title.text-center::after{margin-left:auto;margin-right:auto}
+.section-title.text-white::after{background:linear-gradient(90deg,var(--third),#fff)}
+.section-subtitle{color:#666;font-size:1.1rem;margin-bottom:50px}
 .card-custom{border:none;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.08);transition:all var(--transition-normal);overflow:hidden;background:#fff}
 .card-custom:hover{transform:translateY(-10px);box-shadow:0 20px 50px rgba(0,0,0,0.15)}
 .card-custom .card-icon{width:70px;height:70px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem}
@@ -91,6 +93,33 @@
 .card-icon-secondary{background:linear-gradient(135deg,rgba(170,19,74,0.1),rgba(170,19,74,0.05));color:var(--secondary)}
 .card-icon-third{background:linear-gradient(135deg,rgba(203,148,48,0.1),rgba(203,148,48,0.05));color:var(--third)}
 .card-custom h5{font-weight:700;color:var(--primary)}.card-custom p{color:#666;line-height:1.7}
+/* Service Tiles - Mini Grid */
+.service-tile{background:#fff;border-radius:16px;padding:1.5rem;text-align:center;transition:all var(--transition-normal);border:2px solid #eee}
+.service-tile:hover{border-color:var(--third);transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,0.1)}
+.service-tile i{font-size:2rem;color:var(--secondary);margin-bottom:1rem}
+.service-tile h6{font-weight:700;color:var(--primary);margin:0}
+/* Values Section */
+.value-card{text-align:center;padding:2rem 1rem}
+.value-card .value-icon{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;color:#fff;font-size:1.75rem;transition:all var(--transition-normal)}
+.value-card:hover .value-icon{transform:scale(1.1);box-shadow:0 10px 30px rgba(0,19,72,0.3)}
+.value-card h5{font-weight:700;color:var(--primary);margin-bottom:0.5rem}
+.value-card p{color:#666;font-size:0.9rem;margin:0}
+/* Work Steps - Timeline */
+.work-steps{position:relative;display:flex;justify-content:space-between;flex-wrap:wrap;padding:2rem 0}
+.work-steps::before{content:'';position:absolute;top:40px;left:10%;right:10%;height:3px;background:linear-gradient(90deg,var(--primary),var(--secondary),var(--third));border-radius:2px}
+.work-step{flex:1;min-width:150px;text-align:center;position:relative;padding:0 10px}
+.work-step-number{width:50px;height:50px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;margin:0 auto 1rem;position:relative;z-index:1;transition:all var(--transition-normal)}
+.work-step:hover .work-step-number{background:var(--third);transform:scale(1.1)}
+.work-step h6{font-weight:700;color:var(--primary);margin-bottom:0.25rem}
+.work-step p{font-size:0.85rem;color:#666;margin:0}
+/* Expertise Cards */
+.expertise-card{background:#fff;border-radius:20px;padding:2rem;height:100%;transition:all var(--transition-normal);border-left:4px solid var(--third)}
+.expertise-card:hover{transform:translateX(10px);box-shadow:0 10px 40px rgba(0,0,0,0.1)}
+.expertise-card h5{font-weight:700;color:var(--primary);margin-bottom:0.5rem}
+.expertise-card p{color:#666;font-size:0.95rem;margin-bottom:1rem}
+.expertise-card ul{list-style:none;padding:0;margin:0}
+.expertise-card ul li{padding:0.25rem 0;color:#555;font-size:0.9rem}
+.expertise-card ul li::before{content:'✓';color:var(--third);font-weight:700;margin-right:8px}
 .project-card{border-radius:20px;overflow:hidden}.project-card img{transition:transform 0.5s ease}.project-card:hover img{transform:scale(1.1)}
 .project-card .badge{background:linear-gradient(135deg,var(--primary),var(--secondary));padding:6px 12px;border-radius:20px}
 .subsidiary-card{background:#fff;border-radius:20px;padding:2rem;text-align:center;transition:all var(--transition-normal)}
@@ -99,11 +128,18 @@
 .about-image{position:relative}.about-image img{border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,0.1)}
 .about-image::before{content:'';position:absolute;top:-20px;left:-20px;right:20px;bottom:20px;border:3px solid var(--third);border-radius:20px;z-index:-1}
 .subsidiaries-section{background:linear-gradient(135deg,var(--primary) 0%,#002266 100%);position:relative;overflow:hidden}
+.expertise-section{background:linear-gradient(180deg,#f8f9fa 0%,#fff 100%)}
 .contact-form{background:#fff;border-radius:20px;padding:3rem;box-shadow:0 20px 50px rgba(0,0,0,0.1)}
 .contact-form .form-control{border:2px solid #eee;border-radius:12px;padding:14px 18px}.contact-form .form-control:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(0,19,72,0.1)}
 .contact-form .form-label{font-weight:600;color:var(--primary)}
 .btn-submit{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;border:none;border-radius:50px;padding:16px 40px;font-weight:600;width:100%}
 .btn-submit:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,19,72,0.3);color:#fff}
+/* CTA Band */
+.cta-band{background:linear-gradient(135deg,var(--third) 0%,#e0a830 100%);padding:60px 0;text-align:center}
+.cta-band h3{color:#fff;font-weight:800;margin-bottom:1rem}
+.cta-band p{color:rgba(255,255,255,0.9);margin-bottom:1.5rem}
+.cta-band .btn{background:#fff;color:var(--primary);border:none;padding:14px 40px;border-radius:50px;font-weight:600;transition:all var(--transition-normal)}
+.cta-band .btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,0.2)}
 .footer{background:var(--primary);color:#fff;padding:80px 0 30px}.footer-brand{font-size:2rem;font-weight:800}.footer-brand span{color:var(--third)}
 .footer-links a{color:rgba(255,255,255,0.7);text-decoration:none}.footer-links a:hover{color:var(--third)}
 .social-links a{width:45px;height:45px;border-radius:12px;background:rgba(255,255,255,0.1);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;margin-right:10px;transition:all var(--transition-normal)}
@@ -146,8 +182,8 @@
 .typing-dot{width:8px;height:8px;background:#999;border-radius:50%;animation:typingBounce 1.4s infinite ease-in-out}
 .typing-dot:nth-child(1){animation-delay:0s}.typing-dot:nth-child(2){animation-delay:0.2s}.typing-dot:nth-child(3){animation-delay:0.4s}
 @keyframes typingBounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
-@media(max-width:991.98px){.hero h1{font-size:2.5rem}.section{padding:60px 0}.section-title{font-size:2rem}.navbar-collapse{background:var(--primary);padding:20px;border-radius:15px;margin-top:15px}.about-image::before{display:none}.hero-corner{width:80px;height:80px}}
-@media(max-width:767.98px){.hero{min-height:auto;padding:100px 0 60px}.hero h1{font-size:1.75rem}.hero .lead{font-size:0.95rem}.btn-cta{padding:14px 30px}.section{padding:50px 0}.section-title{font-size:1.75rem}.contact-form{padding:1.5rem}.chat-window{bottom:0;right:0;left:0;width:100%;max-width:100%;height:calc(100vh - 80px);border-radius:20px 20px 0 0}.chat-widget-button{bottom:20px;right:20px;width:60px;height:60px}.hero-corner{display:none}.hero-image{max-height:250px}}
+@media(max-width:991.98px){.hero h1{font-size:2.5rem}.section{padding:60px 0}.section-title{font-size:2rem}.navbar-collapse{background:var(--primary);padding:20px;border-radius:15px;margin-top:15px}.about-image::before{display:none}.hero-corner{width:80px;height:80px}.work-steps::before{display:none}}
+@media(max-width:767.98px){.hero{min-height:auto;padding:100px 0 60px}.hero h1{font-size:1.75rem}.hero .lead{font-size:0.95rem}.btn-cta{padding:14px 30px}.section{padding:50px 0}.section-title{font-size:1.75rem}.contact-form{padding:1.5rem}.chat-window{bottom:0;right:0;left:0;width:100%;max-width:100%;height:calc(100vh - 80px);border-radius:20px 20px 0 0}.chat-widget-button{bottom:20px;right:20px;width:60px;height:60px}.hero-corner{display:none}.hero-image{max-height:250px}.work-step{min-width:100%;margin-bottom:1.5rem}}
 .text-third{color:var(--third)!important}
     </style>
 </head>
@@ -159,8 +195,9 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#expertise">Expertise</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Work</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -206,6 +243,7 @@
         </div>
     </header>
     <main>
+        <!-- Highlight Cards (Build/Secure/Support) -->
         @if($highlightCards->count() > 0)
         <section class="section bg-white">
             <div class="container"><div class="row g-4">
@@ -215,28 +253,127 @@
             </div></div>
         </section>
         @endif
+
+        <!-- Service Tiles (Mini Grid) -->
+        @if($serviceTiles->count() > 0)
+        <section class="section" style="background:#f8f9fa">
+            <div class="container">
+                <div class="row g-3 justify-content-center">
+                    @foreach($serviceTiles as $tile)
+                    <div class="col-6 col-md-4 col-lg reveal">
+                        <div class="service-tile h-100">
+                            <i class="{{ $tile->icon ?? 'bi bi-gear' }}"></i>
+                            <h6>{{ $tile->title }}</h6>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        @endif
+
+        <!-- About Section -->
         <section id="about" class="section">
             <div class="container"><div class="row align-items-center g-5">
                 <div class="col-lg-6 reveal"><h2 class="section-title">Who We Are</h2>@if($about)<div>{!! $about->content !!}</div>@else<p class="text-muted">We are passionate technologists delivering innovative IT solutions.</p>@endif</div>
                 @if($about && $about->image)<div class="col-lg-6 reveal"><div class="about-image"><img src="{{ asset('storage/' . $about->image) }}" class="img-fluid" alt="About" loading="lazy"></div></div>@endif
             </div></div>
         </section>
+
+        <!-- Values Section -->
+        @if($values->count() > 0)
+        <section class="section" style="background:#f8f9fa">
+            <div class="container">
+                <div class="text-center mb-5 reveal"><h2 class="section-title text-center">Our Values</h2><p class="section-subtitle">The principles that guide everything we do</p></div>
+                <div class="row g-4">
+                    @foreach($values as $value)
+                    <div class="col-6 col-md-4 col-lg reveal">
+                        <div class="value-card">
+                            <div class="value-icon"><i class="{{ $value->icon ?? 'bi bi-star' }}"></i></div>
+                            <h5>{{ $value->title }}</h5>
+                            @if($value->description)<p>{{ $value->description }}</p>@endif
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        @endif
+
+        <!-- How We Work - Steps -->
+        @if($workSteps->count() > 0)
+        <section class="section bg-white">
+            <div class="container">
+                <div class="text-center mb-5 reveal"><h2 class="section-title text-center">How We Work</h2><p class="section-subtitle">Our proven process for delivering excellence</p></div>
+                <div class="work-steps reveal">
+                    @foreach($workSteps as $index => $step)
+                    <div class="work-step">
+                        <div class="work-step-number">{{ $index + 1 }}</div>
+                        <h6>{{ $step->title }}</h6>
+                        @if($step->description)<p>{{ $step->description }}</p>@endif
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        @endif
+
+        <!-- Expertise Section -->
+        @if($expertise->count() > 0)
+        <section id="expertise" class="section expertise-section">
+            <div class="container">
+                <div class="text-center mb-5 reveal"><h2 class="section-title text-center">Our Expertise</h2><p class="section-subtitle">What we're strong at</p></div>
+                <div class="row g-4">
+                    @foreach($expertise as $exp)
+                    <div class="col-md-6 reveal">
+                        <div class="expertise-card">
+                            <h5><i class="{{ $exp->icon ?? 'bi bi-gear' }} me-2 text-third"></i>{{ $exp->title }}</h5>
+                            @if($exp->description)<p>{{ $exp->description }}</p>@endif
+                            @if($exp->outcomes)
+                            <ul>
+                                @foreach(explode("\n", $exp->outcomes) as $outcome)
+                                    @if(trim($outcome))<li>{{ trim($outcome) }}</li>@endif
+                                @endforeach
+                            </ul>
+                            @endif
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        @endif
+
+        <!-- Services Section -->
         @if($services->count() > 0)
-        <section id="services" class="section" style="background:linear-gradient(180deg,#f8f9fa 0%,#fff 100%)">
+        <section id="services" class="section bg-white">
             <div class="container">
                 <div class="text-center mb-5 reveal"><h2 class="section-title text-center">Our Services</h2><p class="section-subtitle">Comprehensive IT solutions tailored to your needs</p></div>
                 <div class="row g-4">@foreach($services as $service)<div class="col-md-6 col-lg-4"><div class="card-custom p-4 h-100 reveal"><div class="card-icon card-icon-secondary"><i class="{{ $service->icon ?? 'bi bi-gear' }}"></i></div><h5>{{ $service->title }}</h5><p class="mb-0">{{ $service->description }}</p></div></div>@endforeach</div>
             </div>
         </section>
         @endif
+
+        <!-- Projects/Work Section -->
         @if($projects->count() > 0)
-        <section id="projects" class="section bg-white">
+        <section id="projects" class="section" style="background:#f8f9fa">
             <div class="container">
                 <div class="text-center mb-5 reveal"><h2 class="section-title text-center">Our Work</h2><p class="section-subtitle">Featured projects showcasing our expertise</p></div>
                 <div class="row g-4">@foreach($projects->take(6) as $project)<div class="col-md-6 col-lg-4"><div class="card-custom project-card h-100 reveal">@if($project->image)<div style="overflow:hidden"><img src="{{ asset('storage/' . $project->image) }}" class="card-img-top" style="height:220px;object-fit:cover" alt="{{ $project->title }}" loading="lazy"></div>@endif<div class="card-body p-4">@if($project->client_type)<span class="badge mb-2">{{ ucfirst($project->client_type) }}</span>@endif<h5>{{ $project->title }}</h5>@if($project->outcome)<p class="text-muted small mb-0">{{ Str::limit($project->outcome, 100) }}</p>@endif</div></div></div>@endforeach</div>
             </div>
         </section>
         @endif
+
+        <!-- CTA Band -->
+        <section class="cta-band reveal">
+            <div class="container">
+                <h3>Ready to Transform Your Business?</h3>
+                <p>Let's discuss how we can help you achieve your digital goals</p>
+                <a href="#contact" class="btn">Request a Quote <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+        </section>
+
+        <!-- Subsidiaries Section -->
         @if($subsidiaries->count() > 0)
         <section class="section subsidiaries-section">
             <div class="container position-relative">
@@ -245,6 +382,8 @@
             </div>
         </section>
         @endif
+
+        <!-- Contact Section -->
         <section id="contact" class="section" style="background:linear-gradient(180deg,#f8f9fa 0%,#fff 100%)">
             <div class="container"><div class="row justify-content-center"><div class="col-lg-8">
                 <div class="text-center mb-5 reveal"><h2 class="section-title text-center">Get In Touch</h2><p class="section-subtitle">Ready to start your project? Contact us today!</p></div>
@@ -256,7 +395,7 @@
     <footer class="footer">
         <div class="container"><div class="row g-5">
             <div class="col-lg-4"><div class="footer-brand">TEQ<span>RIOUS</span></div><p class="text-white-50 mb-4">{{ $siteTagline }}</p><div class="social-links">@if($fb = $settings['social']->firstWhere('key', 'facebook'))<a href="{{ $fb->value }}" target="_blank"><i class="bi bi-facebook"></i></a>@endif @if($ig = $settings['social']->firstWhere('key', 'instagram'))<a href="{{ $ig->value }}" target="_blank"><i class="bi bi-instagram"></i></a>@endif @if($li = $settings['social']->firstWhere('key', 'linkedin'))<a href="{{ $li->value }}" target="_blank"><i class="bi bi-linkedin"></i></a>@endif</div></div>
-            <div class="col-lg-4"><h5 class="text-white mb-4">Quick Links</h5><div class="footer-links d-flex flex-column gap-2"><a href="#about">About Us</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div></div>
+            <div class="col-lg-4"><h5 class="text-white mb-4">Quick Links</h5><div class="footer-links d-flex flex-column gap-2"><a href="#about">About Us</a><a href="#expertise">Expertise</a><a href="#services">Services</a><a href="#projects">Work</a><a href="#contact">Contact</a></div></div>
             <div class="col-lg-4"><h5 class="text-white mb-4">Contact Info</h5><div class="footer-links d-flex flex-column gap-3">@if($address)<div class="d-flex gap-3"><i class="bi bi-geo-alt text-third"></i><span class="text-white-50">{{ $address }}</span></div>@endif @if($email)<div class="d-flex gap-3"><i class="bi bi-envelope text-third"></i><a href="mailto:{{ $email }}">{{ $email }}</a></div>@endif @if($phone)<div class="d-flex gap-3"><i class="bi bi-telephone text-third"></i><a href="tel:{{ $phone }}">{{ $phone }}</a></div>@endif</div></div>
         </div><hr class="border-secondary my-5"><div class="text-center"><p class="text-white-50 mb-0">&copy; {{ date('Y') }} {{ $siteName }}. All rights reserved.</p></div></div>
     </footer>
