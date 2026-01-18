@@ -67,6 +67,9 @@
             <a href="{{ route('admin.featured-works.index') }}" class="nav-link {{ request()->routeIs('admin.featured-works.*') ? 'active' : '' }}">
                 <i class="bi bi-briefcase"></i> Projects
             </a>
+            <a href="{{ route('admin.clients.index') }}" class="nav-link {{ request()->routeIs('admin.clients.index.*') ? 'active' : '' }}">
+                <i class="bi bi-briefcase"></i> Clients
+            </a>
             
             <div class="sidebar-heading">About</div>
             <a href="{{ route('admin.about.edit') }}" class="nav-link {{ request()->routeIs('admin.about.*') ? 'active' : '' }}">

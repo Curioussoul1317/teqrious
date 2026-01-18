@@ -17,6 +17,17 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\SubsidiaryQuoteController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Admin\ClientController; 
+use App\Http\Controllers\OurClientController; 
+use App\Http\Controllers\Admin\DashboardController as AdminDashboard; 
+use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
+use App\Http\Controllers\Admin\BillController as AdminBillController;
+use App\Http\Controllers\Client\DashboardController as ClientDashboard;
+use App\Http\Controllers\Client\ProjectController as ClientProjectController;
+use App\Http\Controllers\Client\BillController as ClientBillController;
+use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\CommentController;
+
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'login'])->name('login.post')->middleware('guest');
@@ -27,10 +38,43 @@ Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/subsidiary/{slug}', [FrontendController::class, 'subsidiary'])->name('subsidiary.show');
 Route::post('/contact', [FrontendController::class, 'submitContact'])->name('contact.submit');
 Route::post('/subsidiary/{subsidiary}/quote', [FrontendController::class, 'submitQuote'])->name('subsidiary.quote');
+ 
+
+// Route::middleware('guest')->group(function () {
+//     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+//     Route::post('/login', [AuthController::class, 'login']);
+// });
+
+// Route::middleware('auth')->group(function () {
+//     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+//     Route::get('/profile', [AuthController::class, 'showProfile'])->name('profile');
+//     Route::put('/profile', [AuthController::class, 'updateProfile'])->name('profile.update');
+//     Route::put('/profile/password', [AuthController::class, 'updatePassword'])->name('profile.password');
+// });
 
 // Admin Routes
 Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {
+
+
+     // Client Management
+     Route::resource('clients', ClientController::class);
+     Route::post('/clients/{client}/reset-password', [ClientController::class, 'resetPassword'])->name('clients.reset-password');
+     Route::post('/clients/{client}/toggle-status', [ClientController::class, 'toggleStatus'])->name('clients.toggle-status');
+ 
+     // Project Management
+     Route::resource('projects', AdminProjectController::class);
+     Route::post('/projects/{project}/updates', [AdminProjectController::class, 'addUpdate'])->name('projects.updates.store');
+ 
+     // Bill Management
+     Route::resource('bills', AdminBillController::class);
+     Route::patch('/bills/{bill}/status', [AdminBillController::class, 'updateStatus'])->name('bills.status');
+     Route::get('/clients/{client}/projects', [AdminBillController::class, 'getProjectsByClient'])->name('clients.projects');
+
+
+     //////////////////////////////////////////////////////////////////////
+     Route::resource('our-clients', OurClientController::class);
     
+    Route::get('ourindex', [DashboardController::class, 'ourindex'])->name('dashboard');
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('hero-slides', HeroSlideController::class);
@@ -62,5 +106,47 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
 });
 
  
+ /*
+|--------------------------------------------------------------------------
+| Client Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth', 'client'])->prefix('client')->name('client.')->group(function () {
+    // Dashboard
+    Route::get('/dashboard', [ClientDashboard::class, 'index'])->name('dashboard');
+
+    // Projects
+    Route::get('/projects', [ClientProjectController::class, 'index'])->name('projects.index');
+    Route::get('/projects/{project}', [ClientProjectController::class, 'show'])->name('projects.show');
+
+    // Bills
+    Route::get('/bills', [ClientBillController::class, 'index'])->name('bills.index');
+    Route::get('/bills/{bill}', [ClientBillController::class, 'show'])->name('bills.show');
+});
  
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+/*
+|--------------------------------------------------------------------------
+| Shared Routes (Auth Required)
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware('auth')->group(function () {
+    // Documents
+    Route::post('/projects/{project}/documents', [DocumentController::class, 'store'])->name('documents.store');
+    Route::get('/documents/{document}/download', [DocumentController::class, 'download'])->name('documents.download');
+    Route::delete('/documents/{document}', [DocumentController::class, 'destroy'])->name('documents.destroy');
+
+    // Comments
+    Route::post('/projects/{project}/comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::put('/comments/{comment}', [CommentController::class, 'update'])->name('comments.update');
+    Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+
+
+    Route::get('/profile', [AuthController::class, 'showProfile'])->name('profile');
+    Route::put('/profile', [AuthController::class, 'updateProfile'])->name('profile.update');
+    Route::put('/profile/password', [AuthController::class, 'updatePassword'])->name('profile.password');
+});
+
+
+
