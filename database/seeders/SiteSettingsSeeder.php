@@ -18,8 +18,8 @@ class SiteSettingsSeeder extends Seeder
             
             // Contact
             ['key' => 'email', 'value' => 'info@teqrious.com', 'type' => 'text', 'group' => 'contact'],
-            ['key' => 'phone', 'value' => '+960 XXX XXXX', 'type' => 'text', 'group' => 'contact'],
-            ['key' => 'whatsapp', 'value' => '+9607777777', 'type' => 'text', 'group' => 'contact'],
+            ['key' => 'phone', 'value' => '+960 9654994', 'type' => 'text', 'group' => 'contact'],
+            ['key' => 'whatsapp', 'value' => '+9609654994', 'type' => 'text', 'group' => 'contact'],
             ['key' => 'address', 'value' => "Male', Maldives", 'type' => 'textarea', 'group' => 'contact'],
             
             // Social
