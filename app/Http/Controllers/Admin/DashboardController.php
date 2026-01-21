@@ -17,23 +17,23 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function ourindex()
-    {
-        $data = [
-            'heroSlidesCount' => HeroSlide::count(),
-            'servicesCount' => Service::count(),
-            'projectsCount' => FeaturedWork::count(),
-            'subsidiariesCount' => Subsidiary::count(),
-            'newContactsCount' => Contact::new()->count(),
-            'newQuotesCount' => SubsidiaryQuote::new()->count(),
-            'totalContacts' => Contact::count(),
-            'totalQuotes' => SubsidiaryQuote::count(),
-            'recentContacts' => Contact::latest()->take(5)->get(),
-            'recentQuotes' => SubsidiaryQuote::with('subsidiary')->latest()->take(5)->get(),
-        ];
+    // public function ourindex()
+    // {
+    //     $data = [
+    //         'heroSlidesCount' => HeroSlide::count(),
+    //         'servicesCount' => Service::count(),
+    //         'projectsCount' => FeaturedWork::count(),
+    //         'subsidiariesCount' => Subsidiary::count(),
+    //         'newContactsCount' => Contact::new()->count(),
+    //         'newQuotesCount' => SubsidiaryQuote::new()->count(),
+    //         'totalContacts' => Contact::count(),
+    //         'totalQuotes' => SubsidiaryQuote::count(),
+    //         'recentContacts' => Contact::latest()->take(5)->get(),
+    //         'recentQuotes' => SubsidiaryQuote::with('subsidiary')->latest()->take(5)->get(),
+    //     ];
  
-        return view('admin.dashboard', $data);
-    }
+    //     return view('admin.dashboard', $data);
+    // }
 
     public function index()
     {
@@ -74,7 +74,21 @@ class DashboardController extends Controller
             ->orderBy('month')
             ->get();
 
-        return view('admin.projectsdashboard', compact(
+            $data = [
+                'heroSlidesCount' => HeroSlide::count(),
+                'servicesCount' => Service::count(),
+                'projectsCount' => FeaturedWork::count(),
+                'subsidiariesCount' => Subsidiary::count(),
+                'newContactsCount' => Contact::new()->count(),
+                'newQuotesCount' => SubsidiaryQuote::new()->count(),
+                'totalContacts' => Contact::count(),
+                'totalQuotes' => SubsidiaryQuote::count(),
+                'recentContacts' => Contact::latest()->take(5)->get(),
+                'recentQuotes' => SubsidiaryQuote::with('subsidiary')->latest()->take(5)->get(), 
+            ];
+        
+        return view('admin.dashboard', compact(
+            'data',
             'stats',
             'recentProjects',
             'recentBills',

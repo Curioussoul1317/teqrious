@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('title', 'Create Bill')
 @section('page-title', 'Create New Bill')

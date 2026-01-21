@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('title', $bill->bill_number)
 @section('page-title', 'Bill Details')

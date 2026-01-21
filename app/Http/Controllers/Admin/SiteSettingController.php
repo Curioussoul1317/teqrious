@@ -11,7 +11,7 @@ class SiteSettingController extends Controller
 {
     public function index()
     {
-        $settings = SiteSetting::getAllGrouped();
+        $settings = SiteSetting::getAllGrouped(); 
         return view('admin.settings.index', compact('settings'));
     }
 
