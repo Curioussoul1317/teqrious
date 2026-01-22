@@ -9,7 +9,17 @@ class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    protected $redirectTo = '/admin';
+    /**
+     * Redirect users based on their role after login
+     */
+    protected function redirectTo()
+    {
+        if (auth()->user()->isAdmin()) {
+            return '/admin';
+        }
+        
+        return '/client/dashboard';
+    }
 
     public function showLoginForm()
     {

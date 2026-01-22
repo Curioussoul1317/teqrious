@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Models\Subsidiary;
 use App\Models\FeaturedWork;
 use App\Models\Service;
 
@@ -19,17 +18,6 @@ class GenerateSitemap extends Command
 
         // Homepage
         $sitemap .= $this->addUrl(url('/'), now(), 'daily', '1.0');
-
-        // Subsidiary pages
-        $subsidiaries = Subsidiary::active()->get();
-        foreach ($subsidiaries as $subsidiary) {
-            $sitemap .= $this->addUrl(
-                route('subsidiary.show', $subsidiary->slug),
-                $subsidiary->updated_at,
-                'weekly',
-                '0.8'
-            );
-        }
 
         $sitemap .= '</urlset>';
 

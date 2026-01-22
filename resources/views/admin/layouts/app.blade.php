@@ -210,11 +210,6 @@
                 <a href="{{ route('admin.hero-slides.index') }}" class="nav-link {{ request()->routeIs('admin.hero-slides.*') ? 'active' : '' }}">
                     <i class="bi bi-images"></i> Hero Slides
                 </a>
-                <a href="{{ route('admin.highlight-cards.index') }}" class="nav-link {{ request()->routeIs('admin.highlight-cards.*') ? 'active' : '' }}">
-                    <i class="bi bi-card-heading"></i> Highlight Cards
-                </a>
-                <a href="{{ route('admin.service-tiles.index') }}" class="nav-link {{ request()->routeIs('admin.service-tiles.*') ? 'active' : '' }}">
-                    <i class="bi bi-grid-3x3"></i> Service Tiles
                 </a>
                 <a href="{{ route('admin.featured-works.index') }}" class="nav-link {{ request()->routeIs('admin.featured-works.*') ? 'active' : '' }}">
                     <i class="bi bi-briefcase"></i> Projects
@@ -242,17 +237,12 @@
                     <i class="bi bi-diagram-3"></i> Work Steps
                 </a>
                 
-                <div class="sidebar-heading">Services</div>
-                <a href="{{ route('admin.expertise.index') }}" class="nav-link {{ request()->routeIs('admin.expertise.*') ? 'active' : '' }}">
-                    <i class="bi bi-lightbulb"></i> Expertise
-                </a>
+                <div class="sidebar-heading">Website Content</div>
                 <a href="{{ route('admin.services.index') }}" class="nav-link {{ request()->routeIs('admin.services.*') ? 'active' : '' }}">
                     <i class="bi bi-gear"></i> Services
                 </a>
-                
-                <div class="sidebar-heading">Subsidiaries</div>
-                <a href="{{ route('admin.subsidiaries.index') }}" class="nav-link {{ request()->routeIs('admin.subsidiaries.*') ? 'active' : '' }}">
-                    <i class="bi bi-building"></i> Subsidiaries
+                <a href="{{ route('admin.our-clients.index') }}" class="nav-link {{ request()->routeIs('admin.our-clients.*') ? 'active' : '' }}">
+                    <i class="bi bi-building"></i> Our Clients
                 </a>
                 
                 <div class="sidebar-heading">Inquiries</div>
@@ -260,12 +250,6 @@
                     <i class="bi bi-envelope"></i> Contacts
                     @if(($newContacts = \App\Models\Contact::new()->count()) > 0)
                         <span class="badge bg-danger ms-auto">{{ $newContacts }}</span>
-                    @endif
-                </a>
-                <a href="{{ route('admin.subsidiary-quotes.index') }}" class="nav-link {{ request()->routeIs('admin.subsidiary-quotes.*') ? 'active' : '' }}">
-                    <i class="bi bi-receipt"></i> Quotes
-                    @if(($newQuotes = \App\Models\SubsidiaryQuote::new()->count()) > 0)
-                        <span class="badge bg-danger ms-auto">{{ $newQuotes }}</span>
                     @endif
                 </a>
                 

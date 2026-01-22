@@ -6,9 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\HeroSlide;
 use App\Models\Service;
 use App\Models\FeaturedWork;
-use App\Models\Subsidiary;
 use App\Models\Contact;
-use App\Models\SubsidiaryQuote; 
 use App\Models\Bill;
 use App\Models\Project;
 use App\Models\User;
@@ -78,13 +76,8 @@ class DashboardController extends Controller
                 'heroSlidesCount' => HeroSlide::count(),
                 'servicesCount' => Service::count(),
                 'projectsCount' => FeaturedWork::count(),
-                'subsidiariesCount' => Subsidiary::count(),
-                'newContactsCount' => Contact::new()->count(),
-                'newQuotesCount' => SubsidiaryQuote::new()->count(),
                 'totalContacts' => Contact::count(),
-                'totalQuotes' => SubsidiaryQuote::count(),
                 'recentContacts' => Contact::latest()->take(5)->get(),
-                'recentQuotes' => SubsidiaryQuote::with('subsidiary')->latest()->take(5)->get(), 
             ];
         
         return view('admin.dashboard', compact(
