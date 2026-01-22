@@ -18,7 +18,7 @@ use App\Http\Controllers\Admin\SubsidiaryQuoteController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\ClientController; 
-use App\Http\Controllers\OurClientController; 
+use App\Http\Controllers\Admin\OurClientController; 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard; 
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Admin\BillController as AdminBillController;
@@ -26,9 +26,9 @@ use App\Http\Controllers\Client\DashboardController as ClientDashboard;
 use App\Http\Controllers\Client\ProjectController as ClientProjectController;
 use App\Http\Controllers\Client\BillController as ClientBillController;
 use App\Http\Controllers\DocumentController;
-use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CommentController; 
 
-
+Route::get('/sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index']);
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'login'])->name('login.post')->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
@@ -41,15 +41,15 @@ Route::post('/subsidiary/{subsidiary}/quote', [FrontendController::class, 'submi
  
 
 // Route::middleware('guest')->group(function () {
-//     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-//     Route::post('/login', [AuthController::class, 'login']);
+//     Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
+//     Route::post('/login', [LoginController::class, 'login']);
 // });
 
 // Route::middleware('auth')->group(function () {
-//     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-//     Route::get('/profile', [AuthController::class, 'showProfile'])->name('profile');
-//     Route::put('/profile', [AuthController::class, 'updateProfile'])->name('profile.update');
-//     Route::put('/profile/password', [AuthController::class, 'updatePassword'])->name('profile.password');
+//     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+//     Route::get('/profile', [LoginController::class, 'showProfile'])->name('profile');
+//     Route::put('/profile', [LoginController::class, 'updateProfile'])->name('profile.update');
+//     Route::put('/profile/password', [LoginController::class, 'updatePassword'])->name('profile.password');
 // });
 
 // Admin Routes
@@ -143,9 +143,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 
 
-    Route::get('/profile', [AuthController::class, 'showProfile'])->name('profile');
-    Route::put('/profile', [AuthController::class, 'updateProfile'])->name('profile.update');
-    Route::put('/profile/password', [AuthController::class, 'updatePassword'])->name('profile.password');
+    Route::get('/profile', [LoginController::class, 'showProfile'])->name('profile');
+    Route::put('/profile', [LoginController::class, 'updateProfile'])->name('profile.update');
+    Route::put('/profile/password', [LoginController::class, 'updatePassword'])->name('profile.password');
 });
 
 
