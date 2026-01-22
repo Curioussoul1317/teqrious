@@ -586,7 +586,7 @@ textarea.form-control{min-height:130px;resize:vertical}
             <div class="chat-header-info"><div class="chat-avatar"><i class="bi bi-building"></i></div><div><h6>{{ $siteName }}</h6><p>Online • Replies instantly</p></div></div>
             <button class="chat-close" id="chatClose"><i class="bi bi-x-lg"></i></button>
         </div>
-        <div class="chat-body" id="chatBody"><div class="chat-message"><div class="chat-bubble">Hi! 👋 How can we help you today?</div></div></div>
+        <div class="chat-body" id="chatBody"><div class="chat-message"><div class="chat-bubble">Hi!   How can we help you today?</div></div></div>
         <div class="chat-quick"><button class="quick-btn" data-msg="I need IT consulting">IT Consulting</button><button class="quick-btn" data-msg="Web development inquiry">Web Dev</button><button class="quick-btn" data-msg="Get a quote">Get Quote</button></div>
         <div class="chat-footer"><input type="text" class="chat-input" id="chatInput" placeholder="Type a message..."><button class="chat-send" id="chatSend"><i class="bi bi-send-fill"></i></button></div>
     </div>
