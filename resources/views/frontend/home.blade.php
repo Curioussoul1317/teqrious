@@ -82,15 +82,23 @@ img{max-width:100%;height:auto}
 @keyframes splashExit{0%{clip-path:circle(150% at 50% 50%)}100%{clip-path:circle(0% at 50% 50%)}}
 
 /* ===== NAVBAR ===== */
-.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;background:rgba(0,17,63,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 4px 30px rgba(0,0,0,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1)}
-.navbar.scrolled{background:rgba(0,17,63,0.98);box-shadow:0 4px 30px rgba(0,0,0,0.4);padding:10px 0}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;
+/* background:rgba(0,17,63,0.95); */
+ backdrop-filter:blur(7px);
+-webkit-backdrop-filter:blur(20px);  
+/* box-shadow:0 4px 30px rgba(0,0,0,0.3); */
+transition:all 0.4s cubic-bezier(0.4,0,0.2,1)}
+.navbar.scrolled{
+    /* background:rgba(0,17,63,0.98); */
+/* box-shadow:0 4px 30px rgba(0,0,0,0.4); */
+padding:10px 0}
 .navbar .container{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .navbar-brand{display:flex;align-items:center}
 .navbar-brand img{height:50px;width:auto;transition:all 0.3s ease}
 .navbar-brand:hover img{transform:scale(1.05)}
 .navbar-nav{display:flex;align-items:center;gap:6px;list-style:none}
 .nav-link{position:relative;padding:10px 18px;font-size:0.9rem;font-weight:500;color:rgba(255,255,255,0.9);border-radius:10px;transition:all 0.3s ease;overflow:hidden}
-.navbar.scrolled .nav-link{color:var(--gray-600)}
+.navbar.scrolled .nav-link{color:var(--white)}
 .nav-link::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--secondary),var(--third));opacity:0;transform:scale(0.8);border-radius:inherit;transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);z-index:-1}
 .nav-link:hover{color:var(--white)}
 .nav-link:hover::before{opacity:1;transform:scale(1)}
@@ -98,24 +106,43 @@ img{max-width:100%;height:auto}
 .nav-subsidiary:hover{background:var(--third);color:var(--white)}
 .navbar.scrolled .nav-subsidiary{background:rgba(203,148,48,0.1)}
 .nav-subsidiary svg{width:18px;height:18px}
-.btn-login{display:flex;align-items:center;gap:8px;padding:10px 20px;background:linear-gradient(135deg,var(--secondary),var(--secondary-light));color:var(--white);font-size:0.85rem;font-weight:600;border-radius:10px;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(170,19,74,0.3)}
+.btn-login{display:flex;align-items:center;gap:8px;padding:10px 20px;
+background:linear-gradient(135deg,var(--secondary),var(--secondary-light));
+color:var(--white);font-size:0.85rem;font-weight:600;border-radius:0px;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(170,19,74,0.3)}
 .btn-login:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(170,19,74,0.4)}
 .btn-login i{font-size:1.1rem}
-.navbar-toggle{display:none;width:44px;height:44px;background:rgba(255,255,255,0.1);border:none;border-radius:0;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;transition:all 0.3s ease}
-.navbar.scrolled .navbar-toggle{background:var(--gray-100)}
+.navbar-toggle{display:none;width:44px;height:44px;
+background:rgb(170 19 74);
+border:none;border-radius:0;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;transition:all 0.3s ease}
+.navbar.scrolled .navbar-toggle{background:rgb(170 19 74)}
 .navbar-toggle:hover{background:var(--secondary)}
 .navbar-toggle span{display:block;width:22px;height:2px;background:var(--white);transition:all 0.3s ease}
-.navbar.scrolled .navbar-toggle span{background:var(--primary)}
+.navbar.scrolled .navbar-toggle span{background:var(--white)}
 .navbar-toggle:hover span{background:var(--white)}
 @media(max-width:991px){
 .navbar-toggle{display:flex}
-.navbar-nav{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,19,72,0.98);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:12px;opacity:0;visibility:hidden;transition:all 0.4s ease}
-.navbar-nav.show{opacity:1;visibility:visible}
-.navbar-nav .nav-link{color:var(--white);font-size:1.2rem;padding:14px 28px}
-.navbar-nav .nav-subsidiary{font-size:1rem;padding:14px 24px}
-.navbar-nav .btn-login{font-size:1rem;padding:14px 28px}
-.nav-close{position:absolute;top:20px;right:20px;width:44px;height:44px;background:rgba(255,255,255,0.1);border:none;border-radius:10px;font-size:1.5rem;color:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s ease}
-.nav-close:hover{background:var(--secondary)}
+.navbar-nav{position:fixed;top:0;right:-400px;width:400px;max-width:85vw;height:100vh;
+ background:rgba(0,17,63,0.98);  
+flex-direction:column;justify-content:flex-start;align-items:stretch;gap:0;opacity:1;visibility:visible;
+transition:right 0.4s cubic-bezier(0.4,0,0.2,1);z-index:99999;overflow-y:auto;-webkit-overflow-scrolling:touch;
+padding:100px 0 40px;
+/* box-shadow:-10px 0 50px rgba(0,0,0,0.5); */
+border-left:1px solid rgba(205,165,13,0.2)}
+.navbar-nav.show{right:0}
+.nav-menu-item{border-bottom:1px solid rgba(255,255,255,0.05);transition:all 0.3s ease;position:relative;z-index:100001}
+.nav-menu-item:hover{background:rgba(205,165,13,0.05)}
+.navbar-nav .nav-link{color:var(--white);font-size:1rem;padding:24px 32px;border-radius:0;background:transparent;width:100%;max-width:none;text-align:left;display:flex;flex-direction:column;gap:4px;-webkit-tap-highlight-color:transparent;position:relative;z-index:100001;cursor:pointer}
+.nav-link-title{font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.nav-link-text{font-size:1.15rem;color:var(--white);font-weight:600;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.navbar-nav .nav-link:hover .nav-link-text{color:var(--third);transform:translateX(8px);transition:all 0.3s ease}
+.navbar-nav .btn-login{font-size:1rem;padding:16px 32px;
+width:calc(100% - 64px);max-width:none;justify-content:center;margin:20px 32px;border-radius:0px}
+.nav-close{position:fixed;top:24px;right:24px;width:48px;height:48px;background:rgba(255,255,255,0.1);border:none;border-radius:50%;font-size:1.8rem;color:var(--white);cursor:pointer;display:none;align-items:center;justify-content:center;transition:all 0.3s ease;z-index:100000}
+.navbar-nav.show .nav-close{display:flex}
+.nav-close:hover{background:var(--secondary);transform:rotate(90deg)}
+.nav-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);opacity:0;visibility:hidden;transition:all 0.4s ease;z-index:99998;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.nav-overlay.show{visibility:visible}
+body.modal-open{overflow:hidden}
 }
 
 /* ===== HERO ===== */
@@ -159,10 +186,10 @@ img{max-width:100%;height:auto}
 /* ===== SECTIONS ===== */
 .section{padding:100px 0;position:relative}
 @media(max-width:768px){.section{padding:70px 0}}
-.section-header{text-align:center;max-width:600px;margin:0 auto 3.5rem}
+.section-header{text-align:center;max-width:600px;margin:0 auto -0.5rem}
 .section-title{font-size:clamp(1.8rem,5vw,2.5rem);margin-bottom:1rem}
 .section-subtitle{color:rgba(255,255,255,0.6);font-size:1.05rem}
-.bg-gray{background:transparent}
+.bg-gray{background:rgba(255,255,255,0.03);padding:80px 0}
 .bg-dark{background:transparent}
 
 /* ===== REVEAL ANIMATIONS ===== */
@@ -230,30 +257,59 @@ img{max-width:100%;height:auto}
 .steps-container::before{content:'';position:absolute;top:35px;left:15%;right:15%;height:3px;background:linear-gradient(90deg,var(--secondary),var(--third));z-index:0;border-radius:2px}
 @media(max-width:768px){.steps-container::before{display:none}}
 .step{flex:1;min-width:150px;max-width:200px;text-align:center;position:relative;z-index:1}
-.step-number{width:70px;height:70px;border-radius:0;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:var(--white);font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;box-shadow:0 8px 25px rgba(0,19,72,0.3);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);border:4px solid var(--white)}
+.step-number{width:70px;height:70px;border-radius:0;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:var(--white);font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;box-shadow:0 8px 25px rgba(0,19,72,0.3);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);border:2px solid var(--white)}
 .step:hover .step-number{transform:scale(1.15);background:linear-gradient(135deg,var(--secondary),var(--third))}
 .step h6{font-size:1rem;margin-bottom:0.4rem;color:#fff}
 .step p{font-size:0.85rem;color:rgba(255,255,255,0.6);margin:0}
 
+/* ===== CAROUSEL ===== */
+.carousel-container{position:relative;padding:0px 0;overflow:hidden}
+.carousel-track{display:flex;gap:1.5rem;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);padding:0px 0px 85px 5px}
+.carousel-track .service-card{min-width:320px;max-width:350px;flex-shrink:0}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;
+background:linear-gradient(135deg,var(--secondary),var(--third));color:var(--white);border:none;
+border-radius:50%;font-size:1.5rem;cursor:pointer;z-index:10;transition:all 0.3s ease;display:flex;align-items:center;justify-content:center;
+/* box-shadow:0 4px 15px rgba(203,148,48,0.4) */
+}
+.carousel-btn:hover{transform:translateY(-50%) scale(1.1);
+/* box-shadow:0 6px 25px rgba(203,148,48,0.6) */
+}
+.carousel-prev{left:10px}
+.carousel-next{right:10px}
+.carousel-dots{display:flex;justify-content:center;gap:10px;margin-top:20px}
+.carousel-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.3);cursor:pointer;transition:all 0.3s ease;border:2px solid transparent}
+.carousel-dot.active{background:var(--third);transform:scale(1.3);border-color:var(--third);
+/* box-shadow:0 0 10px var(--third) */
+}
+.carousel-dot:hover{background:var(--third);transform:scale(1.1)}
+@media(max-width:768px){.carousel-btn{width:40px;height:40px;font-size:1.2rem}.carousel-prev{left:5px}.carousel-next{right:5px}}
+
 /* ===== SERVICES ===== */
-.service-card{background:rgba(255,255,255,0.05);border-radius:var(--radius-lg);padding:2rem;border:1px solid rgba(255,255,255,0.1);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);position:relative;overflow:hidden}
+.service-card{min-width:320px;max-width:350px;flex-shrink:0;border-radius:var(--radius-lg);padding:2rem;
+/* border:2px solid rgba(203,148,48,0.3); */
+transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);position:relative;overflow:hidden;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--secondary),var(--third));transform:scaleX(0);transition:transform 0.4s ease}
-.service-card:hover{border-color:var(--secondary);box-shadow:var(--shadow-lg);transform:translateY(-5px)}
+.service-card:hover{border-color:var(--third);
+/* box-shadow:0 10px 40px rgba(203,148,48,0.4); */
+transform:translateY(-5px);background:rgba(255,255,255,0.2)}
 .service-card:hover::after{transform:scaleX(1)}
 .service-card i{font-size:2.25rem;color:var(--third);margin-bottom:1rem;display:block;transition:all 0.4s ease}
-.service-card:hover i{transform:scale(1.1);color:var(--secondary)}
-.service-card h5{font-size:1.1rem;margin-bottom:0.6rem;color:#fff}
-.service-card p{font-size:0.9rem;color:rgba(255,255,255,0.6);margin:0}
+.service-card:hover i{transform:scale(1.1);color:var(--third);filter:brightness(1.3)}
+.service-card h5{font-size:1.15rem;margin-bottom:0.6rem;color:#fff;font-weight:700}
+.service-card p{font-size:0.95rem;color:rgba(255,255,255,0.85);margin:0;line-height:1.6}
 
 /* ===== PROJECTS SLIDER ===== */
-.projects-slider-container{position:relative;padding:0}
-.projects-slider{display:flex;gap:1.5rem;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;padding:10px 0}
+.projects-slider-container{position:relative;padding:20px 0}
+.projects-slider{display:flex;gap:1.5rem;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;padding:10px 0;min-height:200px}
 .projects-slider::-webkit-scrollbar{display:none}
-.project-card{flex:0 0 350px;overflow:hidden}
+.project-card{flex:0 0 350px;overflow:hidden;background:rgba(255,255,255,0.2);border:3px solid rgba(203,148,48,0.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:var(--radius-lg);transition:all 0.4s ease}
+.project-card:hover{transform:translateY(-5px);border-color:var(--third);box-shadow:0 10px 40px rgba(203,148,48,0.4)}
 .project-card img{display:none}
 .project-card .card-body{padding:1.5rem}
-.project-card .badge{display:inline-block;padding:5px 12px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:var(--white);font-size:0.75rem;font-weight:600;border-radius:50px;margin-bottom:0.6rem}
-.project-card h5{font-size:1.05rem;margin-bottom:0.4rem}
+.project-card .badge{display:inline-block;padding:6px 14px;background:linear-gradient(135deg,var(--third),var(--third-light));color:var(--primary);font-size:0.8rem;font-weight:700;border-radius:50px;margin-bottom:0.8rem;box-shadow:0 4px 15px rgba(203,148,48,0.3)}
+.project-card h5{font-size:1.15rem;margin-bottom:0.6rem;color:#fff;font-weight:700}
+.project-card p{color:rgba(255,255,255,0.85)}
+.project-card strong{color:var(--third)}
 .slider-btn{display:none}
 @media(max-width:768px){.project-card{flex:0 0 280px}}
 
@@ -311,11 +367,46 @@ textarea.form-control{min-height:130px;resize:vertical}
 .footer-bottom p{color:rgba(255,255,255,0.5);font-size:0.9rem;margin:0}
 
 /* ===== WHATSAPP BUTTON ===== */
-.whatsapp-btn{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:0;background:#8f0840;border:none;color:var(--white);font-size:1.8rem;cursor:pointer;box-shadow:0 8px 25px rgba(143,8,64,0.5);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);z-index:1000;display:flex;align-items:center;justify-content:center}
-.whatsapp-btn:hover{transform:scale(1.1) rotate(-5deg);box-shadow:0 12px 35px rgba(143,8,64,0.6)}
+.whatsapp-btn{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:0;background:#8f0840;border:none;color:var(--white);font-size:1.5rem;cursor:pointer;
+/* box-shadow:0 8px 25px rgba(143,8,64,0.5); */
+transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);z-index:1000;display:flex;align-items:center;justify-content:center}
+.whatsapp-btn:hover{transform:scale(1.1) rotate(-5deg);
+/* box-shadow:0 12px 35px rgba(143,8,64,0.6) */
+}
+
+/* ===== SCROLL TIMELINE ===== */
+.scroll-progress{position:fixed;top:0;left:0;width:100%;height:4px;background:rgba(255,255,255,0.1);z-index:10000;pointer-events:none}
+.scroll-progress-bar{height:100%;background:linear-gradient(90deg,var(--secondary),var(--third));width:0%;transition:width 0.1s ease-out;box-shadow:0 0 15px var(--third)}
+.scroll-timeline{position:fixed;right:30px;top:50%;transform:translateY(-50%);z-index:999;display:none;flex-direction:column;gap:20px;opacity:0;transition:opacity 0.3s ease}
+.scroll-timeline.active{opacity:1}
+.timeline-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.3);border:2px solid transparent;cursor:pointer;transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);position:relative}
+.timeline-dot:hover{background:var(--third);border-color:var(--third);transform:scale(1.3)}
+.timeline-dot.active{background:var(--secondary);border-color:var(--secondary);transform:scale(1.4);box-shadow:0 0 15px var(--secondary)}
+.timeline-dot::before{content:attr(data-section);position:absolute;right:25px;top:50%;transform:translateY(-50%);background:rgba(0,17,63,0.95);color:var(--white);padding:6px 12px;border-radius:6px;font-size:0.75rem;font-weight:600;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.3s ease;border:1px solid rgba(255,255,255,0.1)}
+.timeline-dot:hover::before{opacity:1;right:30px}
+@media(max-width:768px){.scroll-timeline{display:none}}
+
+/* ===== SECTION ANIMATIONS ===== */
+.scroll-section{opacity:1;transform:translateY(0);transition:none}
+.scroll-section.animate-in{opacity:0;transform:translateY(80px)}
+.parallax-bg{transition:transform 0.1s ease-out}
     </style>
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
+    <!-- Scroll Timeline Dots -->
+    <div class="scroll-timeline" id="scrollTimeline">
+        <div class="timeline-dot" data-section="Home" data-target="hero"></div>
+        <div class="timeline-dot" data-section="About" data-target="about"></div>
+        <div class="timeline-dot" data-section="Services" data-target="services"></div>
+        <div class="timeline-dot" data-section="Projects" data-target="projects"></div>
+        <div class="timeline-dot" data-section="Contact" data-target="contact"></div>
+    </div>
+
     <!-- Splash Screen -->
     <div class="splash" id="splash">
         <div class="splash-particles">
@@ -336,22 +427,34 @@ textarea.form-control{min-height:130px;resize:vertical}
         <div class="container">
             <a href="/" class="navbar-brand"><img src="{{ asset('img/logo.png') }}" alt="{{ $siteName }}"></a>
             <ul class="navbar-nav" id="navMenu">
-                <button class="nav-close" onclick="closeNav()"><i class="bi bi-x-lg"></i></button>
-                <li><a href="#about" class="nav-link" onclick="closeNav()">About</a></li>
-                <li><a href="#services" class="nav-link" onclick="closeNav()">Services</a></li>
-                <li><a href="#projects" class="nav-link" onclick="closeNav()">Work</a></li>
-                <li><a href="#contact" class="nav-link" onclick="closeNav()">Contact</a></li>
+                <!-- <button class="nav-close" onclick="closeNav()"><i class="bi bi-x-lg"></i></button> -->
+                <li class="nav-menu-item"><a href="#about" class="nav-link" onclick="closeNav()"><span class="nav-link-title">
+                    <!-- Discover -->
+                </span><span class="nav-link-text">About Us</span></a></li>
+                <li class="nav-menu-item"><a href="#services" class="nav-link" onclick="closeNav()"><span class="nav-link-title">
+                    <!-- What We Offer -->
+                </span><span class="nav-link-text">Our Services</span></a></li>
+                <li class="nav-menu-item"><a href="#work-steps" class="nav-link" onclick="closeNav()"><span class="nav-link-title">
+                    <!-- Our Process -->
+                </span><span class="nav-link-text">How We Work</span></a></li>
+                <li class="nav-menu-item"><a href="#projects" class="nav-link" onclick="closeNav()"><span class="nav-link-title">
+                    <!-- Portfolio -->
+                </span><span class="nav-link-text">Our Work</span></a></li>
                 <li><a href="/login" class="btn-login"><i class="bi bi-person-circle"></i> Login</a></li>
             </ul>
             <button class="navbar-toggle" onclick="toggleNav()"><span></span><span></span><span></span></button>
+            
         </div>
     </nav>
+    
+    <!-- Mobile Nav Overlay -->
+    <!-- <div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div> -->
 
     <!-- Full-Page 3D Particle Sphere (Fixed Position) -->
-    <canvas id="particle-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:999999;pointer-events:none;mix-blend-mode:screen;"></canvas>
+    <canvas id="particle-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;mix-blend-mode:screen;"></canvas>
 
     <!-- Hero -->
-    <header class="hero">
+    <header class="hero" id="hero">
         <!-- Simplified Background (subtle gradient overlay) -->
         <div class="hero-bg">
             <div class="hero-gradient"></div>
@@ -375,7 +478,10 @@ textarea.form-control{min-height:130px;resize:vertical}
         @if($clients->count() > 0)
         <section class="clients-section">
             <div class="container">
-                <div class="clients-header"><h6>Trusted By Leading Organizations</h6></div>
+                <div class="section-header">
+                    <h2 class="section-title">Our Clients</h2>
+                    <p class="section-subtitle">Trusted by leading organizations</p>
+                </div>
             </div>
             <div class="clients-track">
                 @foreach($clients as $client)<div class="client-item"><img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->name }}" class="client-logo" title="{{ $client->name }}"></div>@endforeach
@@ -385,9 +491,12 @@ textarea.form-control{min-height:130px;resize:vertical}
         @endif
 
         <!-- About -->
-        <section id="about" class="section">
+        <section id="about" class="section scroll-section">
             <div class="container">
-                <div class="section-header reveal"><h2 class="section-title">Who We Are</h2></div>
+                <div class="section-header" style="padding-bottom: 40px;">
+                    <h2 class="section-title">About Us</h2>
+                    <p class="section-subtitle">Discover who we are and what drives us</p>
+                </div>
                 <div class="about-content reveal" style="max-width:900px;margin:0 auto;text-align:center;">
                     @if($about)<div>{!! $about->content !!}</div>@else<p>We are passionate technologists delivering innovative IT solutions to businesses across Maldives. Our team combines expertise with creativity to transform your digital presence.</p>@endif
                 </div>
@@ -396,9 +505,12 @@ textarea.form-control{min-height:130px;resize:vertical}
 
         <!-- Values -->
         @if($values->count() > 0)
-        <section class="section bg-gray">
+        <section class="section bg-gray scroll-section" id="values">
             <div class="container">
-                <div class="section-header reveal"><h2 class="section-title">Our Values</h2><p class="section-subtitle">The principles that guide everything we do</p></div>
+                <div class="section-header">
+                    <h2 class="section-title">Our Values</h2>
+                    <p class="section-subtitle">The principles that guide everything we do</p>
+                </div>
                 <div class="grid grid-5">
                     @foreach($values as $i => $value)
                     <div class="value-card reveal stagger-{{ ($i % 5) + 1 }}">
@@ -414,27 +526,42 @@ textarea.form-control{min-height:130px;resize:vertical}
 
         <!-- Services -->
         @if($services->count() > 0)
-        <section id="services" class="section">
+        <section id="services" class="section  scroll-section">
             <div class="container">
-                <div class="section-header reveal"><h2 class="section-title">Our Services</h2><p class="section-subtitle">Comprehensive IT solutions tailored to your needs</p></div>
-                <div class="grid grid-3">
-                    @foreach($services as $i => $service)
-                    <div class="service-card reveal stagger-{{ ($i % 3) + 1 }}">
-                        <i class="{{ $service->icon ?? 'bi bi-gear' }}"></i>
-                        <h5>{{ $service->title }}</h5>
-                        <p>{{ $service->description }}</p>
-                    </div>
-                    @endforeach
+                <div class="section-header">
+                    <h2 class="section-title">Our Services</h2>
+                    <p class="section-subtitle">Comprehensive IT solutions tailored to your needs</p>
                 </div>
+                <div class="carousel-container">
+                    <!-- <button class="carousel-btn carousel-prev" onclick="slideCarousel('services-carousel', -1)">
+                        <i class="bi bi-chevron-left"></i>
+                    </button> -->
+                    <div class="carousel-track" id="services-carousel">
+                        @foreach($services as $i => $service)
+                        <div class="service-card bg-gray" style="opacity: 1.0429;">
+                            <i class="{{ $service->icon ?? 'bi bi-gear' }}"></i>
+                            <h5>{{ $service->title }}</h5>
+                            <p>{{ $service->description }}</p>
+                        </div>
+                        @endforeach
+                    </div>
+                    <!-- <button class="carousel-btn carousel-next" onclick="slideCarousel('services-carousel', 1)">
+                        <i class="bi bi-chevron-right"></i>
+                    </button> -->
+                </div>
+                <div class="carousel-dots" id="services-dots"></div>
             </div>
         </section>
         @endif
 
         <!-- Work Steps -->
         @if($workSteps->count() > 0)
-        <section class="section bg-gray">
+        <section class="section  scroll-section" id="work-steps">
             <div class="container">
-                <div class="section-header reveal"><h2 class="section-title">How We Work</h2><p class="section-subtitle">Our proven process for delivering excellence</p></div>
+                <div class="section-header" style="padding-bottom: 40px;">
+                    <h2 class="section-title">How We Work</h2>
+                    <p class="section-subtitle">Our proven process for delivering excellence</p>
+                </div>
                 <div class="steps-container">
                     @foreach($workSteps as $i => $step)
                     <div class="step reveal stagger-{{ $i + 1 }}">
@@ -448,32 +575,61 @@ textarea.form-control{min-height:130px;resize:vertical}
         </section>
         @endif
 
-        <!-- Projects -->
-        @if($projects->count() > 0)
-        <section id="projects" class="section">
+        <!-- Products -->
+        @if($products->count() > 0)
+        <section id="projects" class="section   scroll-section">
             <div class="container">
-                <div class="section-header reveal"><h2 class="section-title">Our Work</h2><p class="section-subtitle">Featured projects showcasing our expertise</p></div>
-                <div class="projects-slider-container reveal">
-                    <button class="slider-btn prev"><i class="bi bi-chevron-left"></i></button>
-                    <div class="projects-slider">
-                        @foreach($projects as $project)
-                        <div class="card project-card">
-                            @if($project->image)<img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">@endif
-                            <div class="card-body">
-                                @if($project->client_type)<span class="badge">{{ ucfirst($project->client_type) }}</span>@endif
-                                <h5>{{ $project->title }}</h5>
-                                @if($project->outcome)<p>{{ Str::limit($project->outcome, 80) }}</p>@endif
-                            </div>
+                <div class="section-header">
+                    <h2 class="section-title">Our Products</h2>
+                    <p class="section-subtitle">Professional solutions designed for your success</p>
+                </div>
+                <div class="carousel-container">
+                    <!-- <button class="carousel-btn carousel-prev" onclick="slideCarousel('products-carousel', -1)">
+                        <i class="bi bi-chevron-left"></i>
+                    </button> -->
+                    <div class="carousel-track" id="products-carousel">
+                        @foreach($products as $i => $product)
+                        <div class="service-card" style="opacity: 1.0429;">
+                            @if($product->category)<span class="badge" style="display:inline-block;padding:6px 14px;background:linear-gradient(135deg,var(--third),var(--third-light));color:var(--primary);font-size:0.8rem;font-weight:700;border-radius:50px;margin-bottom:0.8rem;">{{ $product->category }}</span>@endif
+                            <h5>{{ $product->name }}</h5>
+                            @if($product->description)<p>{{ $product->description }}</p>@endif
+                            @if($product->price)<p style="margin-top:1rem;"> </p>@endif
                         </div>
                         @endforeach
                     </div>
-                    <button class="slider-btn next"><i class="bi bi-chevron-right"></i></button>
+                    <!-- <button class="carousel-btn carousel-next" onclick="slideCarousel('products-carousel', 1)">
+                        <i class="bi bi-chevron-right"></i>
+                    </button> -->
                 </div>
+                <div class="carousel-dots" id="products-dots"></div>
             </div>
         </section>
         @endif
 
-     
+        <!-- Client Images -->
+        @if($clientImages->count() > 0)
+        <section class="section scroll-section" style="padding:60px 0;">
+            <div class="container">
+                <div class="section-header" style="padding-bottom: 40px;">
+                    <h2 class="section-title">Our Clients</h2>
+                    <p class="section-subtitle">Our valued clients</p>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;align-items:center;">
+                    @foreach($clientImages as $image)
+                    <div style="flex:0 0 auto;">
+                        <img src="{{ asset('storage/' . $image->image) }}" 
+                             alt="{{ $image->name }}" 
+                             title="{{ $image->name }}"
+                             style="max-width:100px;height:auto;  filter: brightness(0) invert(1);
+                             "
+                             
+                             >
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        @endif
 
     </main>
 
@@ -525,7 +681,102 @@ textarea.form-control{min-height:130px;resize:vertical}
     
     <!-- 3D Particle Sphere Animation with Scroll Morphing -->
     <script>
-// Three.js Particle Sphere with Scroll-based Explosion
+// ============================================
+// PART 1: 3D Simplex Noise Implementation
+// ============================================
+// Lightweight simplex noise for coherent particle deformation
+// Based on Stefan Gustavson's implementation
+class SimplexNoise {
+    constructor() {
+        this.grad3 = [
+            [1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0],
+            [1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1],
+            [0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1]
+        ];
+        
+        this.p = [];
+        for(let i = 0; i < 256; i++) {
+            this.p[i] = Math.floor(Math.random() * 256);
+        }
+        
+        this.perm = [];
+        for(let i = 0; i < 512; i++) {
+            this.perm[i] = this.p[i & 255];
+        }
+    }
+    
+    dot(g, x, y, z) {
+        return g[0] * x + g[1] * y + g[2] * z;
+    }
+    
+    noise(xin, yin, zin) {
+        const F3 = 1.0 / 3.0;
+        const G3 = 1.0 / 6.0;
+        
+        const s = (xin + yin + zin) * F3;
+        const i = Math.floor(xin + s);
+        const j = Math.floor(yin + s);
+        const k = Math.floor(zin + s);
+        
+        const t = (i + j + k) * G3;
+        const X0 = i - t;
+        const Y0 = j - t;
+        const Z0 = k - t;
+        const x0 = xin - X0;
+        const y0 = yin - Y0;
+        const z0 = zin - Z0;
+        
+        let i1, j1, k1;
+        let i2, j2, k2;
+        
+        if(x0 >= y0) {
+            if(y0 >= z0) { i1=1; j1=0; k1=0; i2=1; j2=1; k2=0; }
+            else if(x0 >= z0) { i1=1; j1=0; k1=0; i2=1; j2=0; k2=1; }
+            else { i1=0; j1=0; k1=1; i2=1; j2=0; k2=1; }
+        } else {
+            if(y0 < z0) { i1=0; j1=0; k1=1; i2=0; j2=1; k2=1; }
+            else if(x0 < z0) { i1=0; j1=1; k1=0; i2=0; j2=1; k2=1; }
+            else { i1=0; j1=1; k1=0; i2=1; j2=1; k2=0; }
+        }
+        
+        const x1 = x0 - i1 + G3;
+        const y1 = y0 - j1 + G3;
+        const z1 = z0 - k1 + G3;
+        const x2 = x0 - i2 + 2.0 * G3;
+        const y2 = y0 - j2 + 2.0 * G3;
+        const z2 = z0 - k2 + 2.0 * G3;
+        const x3 = x0 - 1.0 + 3.0 * G3;
+        const y3 = y0 - 1.0 + 3.0 * G3;
+        const z3 = z0 - 1.0 + 3.0 * G3;
+        
+        const ii = i & 255;
+        const jj = j & 255;
+        const kk = k & 255;
+        
+        const gi0 = this.perm[ii + this.perm[jj + this.perm[kk]]] % 12;
+        const gi1 = this.perm[ii + i1 + this.perm[jj + j1 + this.perm[kk + k1]]] % 12;
+        const gi2 = this.perm[ii + i2 + this.perm[jj + j2 + this.perm[kk + k2]]] % 12;
+        const gi3 = this.perm[ii + 1 + this.perm[jj + 1 + this.perm[kk + 1]]] % 12;
+        
+        let t0 = 0.6 - x0*x0 - y0*y0 - z0*z0;
+        let n0 = t0 < 0 ? 0.0 : Math.pow(t0, 4) * this.dot(this.grad3[gi0], x0, y0, z0);
+        
+        let t1 = 0.6 - x1*x1 - y1*y1 - z1*z1;
+        let n1 = t1 < 0 ? 0.0 : Math.pow(t1, 4) * this.dot(this.grad3[gi1], x1, y1, z1);
+        
+        let t2 = 0.6 - x2*x2 - y2*y2 - z2*z2;
+        let n2 = t2 < 0 ? 0.0 : Math.pow(t2, 4) * this.dot(this.grad3[gi2], x2, y2, z2);
+        
+        let t3 = 0.6 - x3*x3 - y3*y3 - z3*z3;
+        let n3 = t3 < 0 ? 0.0 : Math.pow(t3, 4) * this.dot(this.grad3[gi3], x3, y3, z3);
+        
+        return 32.0 * (n0 + n1 + n2 + n3);
+    }
+}
+
+// ============================================
+// PART 2: Enhanced Particle Sphere with Noise
+// ============================================
 class ParticleSphere {
     constructor() {
         this.canvas = document.getElementById('particle-canvas');
@@ -565,8 +816,8 @@ class ParticleSphere {
 
     createParticles() {
         const radius = 5;
-        const latitudeLines = 50;
-        const longitudePoints = 80;
+        const latitudeLines = 60;
+        const longitudePoints = 100;
         
         const positions = [];
         const originalPositions = [];
@@ -589,14 +840,15 @@ class ParticleSphere {
                 positions.push(x, y, z);
                 originalPositions.push(x, y, z);
                 
-                // Random dispersed positions for scroll effect - keep particles closer to viewport
+                // Random dispersed positions for scroll effect
                 randomTargets.push(
-                    (Math.random() - 0.5) * 20,
-                    (Math.random() - 0.5) * 20,
-                    (Math.random() - 0.5) * 15
+                    (Math.random() - 0.5) * 25,
+                    (Math.random() - 0.5) * 25,
+                    (Math.random() - 0.5) * 20
                 );
                 
-                sizes.push(0.25 + Math.random() * 0.15);  // Bigger particles
+                // Smaller particle size
+                sizes.push(0.25 + Math.random() * 0.2);
             }
         }
 
@@ -607,16 +859,52 @@ class ParticleSphere {
         this.originalPositions = new Float32Array(originalPositions);
         this.randomTargets = new Float32Array(randomTargets);
 
-        const vertexShader = 'attribute float size;varying float vAlpha;void main() {vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);gl_PointSize = size * (80.0 / -mvPosition.z);gl_Position = projectionMatrix * mvPosition;vAlpha = 0.4 + 0.6 * (1.0 - (mvPosition.z + 8.0) / 16.0);}';
+        // Enhanced vertex shader with depth-based sizing (no glow)
+        const vertexShader = `
+            attribute float size;
+            varying float vAlpha;
+            varying float vDepth;
+            void main() {
+                vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                float depth = -mvPosition.z;
+                vDepth = depth;
+                
+                // Moderate depth-based sizing
+                float depthScale = 80.0 / max(depth, 1.0);
+                gl_PointSize = size * depthScale;
+                
+                gl_Position = projectionMatrix * mvPosition;
+                
+                // Consistent brightness with slight depth fade
+                vAlpha = 0.6 + 0.4 * (1.0 - smoothstep(5.0, 20.0, depth));
+            }
+        `;
 
-        const fragmentShader = 'varying float vAlpha;void main() {vec2 center = gl_PointCoord - vec2(0.5);float dist = length(center);if (dist > 0.5) discard;float alpha = 1.0 - smoothstep(0.3, 0.5, dist);gl_FragColor = vec4(0.9, 0.75, 0.4, alpha * vAlpha);}';
+        const fragmentShader = `
+            varying float vAlpha;
+            varying float vDepth;
+            void main() {
+                vec2 center = gl_PointCoord - vec2(0.5);
+                float dist = length(center);
+                if (dist > 0.5) discard;
+                
+                // Crisp, solid particles without glow
+                float alpha = 1.0 - smoothstep(0.4, 0.5, dist);
+                
+                // Solid golden color
+                vec3 color = vec3(0.9, 0.75, 0.4);
+                
+                gl_FragColor = vec4(color, alpha * vAlpha);
+            }
+        `;
 
         this.material = new THREE.ShaderMaterial({
             vertexShader: vertexShader,
             fragmentShader: fragmentShader,
             transparent: true,
             depthWrite: false,
-            depthTest: true
+            depthTest: true,
+            blending: THREE.NormalBlending
         });
 
         this.particles = new THREE.Points(this.geometry, this.material);
@@ -624,6 +912,7 @@ class ParticleSphere {
 
         this.mouse = new THREE.Vector2(0, 0);
         this.targetRotation = new THREE.Vector2(0, 0);
+        this.targetCameraZ = 12;
     }
 
     addEventListeners() {
@@ -634,9 +923,14 @@ class ParticleSphere {
     }
 
     onScroll() {
-        // Calculate scroll progress (0 to 1) over first 1200px - slower transition
-        const maxScroll = 1200;
-        this.scrollProgress = Math.min(window.scrollY / maxScroll, 1);
+        // Calculate scroll progress based on entire page height
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const rawProgress = scrollTop / docHeight; // 0 to 1 from top to bottom
+        
+        // Create a parabolic curve: expands in middle, shrinks at bottom
+        // Using sine wave: starts at 0, peaks at 0.5 (middle), returns to 0 at end
+        this.scrollProgress = Math.sin(rawProgress * Math.PI);
     }
 
     onResize() {
@@ -663,86 +957,147 @@ class ParticleSphere {
         const time = this.clock.getElapsedTime();
         const positions = this.geometry.attributes.position.array;
 
-        // Ease function for smooth transitions
+        // Ease functions
+        const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
         const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
-        const morphProgress = easeOutQuart(this.scrollProgress);
-
-        // Dynamic shape transformation based on scroll
-        const scrollCycle = (this.scrollProgress * 4) % 1; // Creates 4 transformation cycles
-        const shapePhase = Math.floor(this.scrollProgress * 4); // 0-3 phases
         
-        // Expansion/contraction pulse
-        const expansionPulse = 1 + Math.sin(time * 0.5 + this.scrollProgress * 3) * 0.3;
+        // Calculate which shape we're morphing into based on scroll
+        const totalShapes = 5;
+        const shapeIndex = this.scrollProgress * totalShapes;
+        const currentShape = Math.floor(shapeIndex);
+        const nextShape = Math.min(currentShape + 1, totalShapes);
+        const shapeBlend = shapeIndex - currentShape; // 0 to 1 between shapes
+        const smoothBlend = easeInOutCubic(shapeBlend);
+        
+        // DRAMATIC EXPANSION EFFECT - zoom into particles as we scroll
+        const expansionScale = 1 + this.scrollProgress * 2.5; // Grows to 3.5x
+        const tunnelEffect = this.scrollProgress * 1.8; // Pull camera closer for "going inside" feel
+        this.targetCameraZ = 12 - tunnelEffect * 7; // Move camera from z=12 to z=5
+        this.camera.position.z += (this.targetCameraZ - this.camera.position.z) * 0.05;
+        
+        // Pulsing expansion for dramatic effect
+        const breathePulse = 1 + Math.sin(time * 0.6) * 0.15 * this.scrollProgress;
         
         for (let i = 0; i < positions.length / 3; i++) {
             const ox = this.originalPositions[i * 3];
             const oy = this.originalPositions[i * 3 + 1];
             const oz = this.originalPositions[i * 3 + 2];
 
-            const rx = this.randomTargets[i * 3];
-            const ry = this.randomTargets[i * 3 + 1];
-            const rz = this.randomTargets[i * 3 + 2];
-
             const r = Math.sqrt(ox * ox + oy * oy + oz * oz);
-            
-            // Multi-layered wave deformation
-            const wave1 = Math.sin(oy * 1.5 + time * 0.8) * 0.08;
-            const wave2 = Math.sin(ox * 2 + time * 0.6) * 0.05;
-            const wave3 = Math.cos(oz * 1.8 + time * 0.7) * 0.06;
-            
-            // Spiral transformation
-            const spiralIntensity = Math.sin(this.scrollProgress * Math.PI) * 0.5;
-            const spiral = Math.cos(Math.atan2(oz, ox) * 3 + time + oy * 0.5) * spiralIntensity;
-            
-            // Shape morphing based on scroll phase
-            let shapeMorph = 1;
-            if (shapePhase === 0) {
-                // Sphere to ellipsoid
-                shapeMorph = 1 + Math.abs(oy / 5) * scrollCycle * 0.5;
-            } else if (shapePhase === 1) {
-                // Ellipsoid to torus-like
-                shapeMorph = 1 - Math.abs(oy / 5) * scrollCycle * 0.3;
-            } else if (shapePhase === 2) {
-                // Torus to cylinder
-                const cylinderFactor = scrollCycle;
-                shapeMorph = 1 + (Math.abs(oy / 5) - 0.5) * cylinderFactor * 0.4;
-            } else {
-                // Cylinder to scattered
-                shapeMorph = 1 - scrollCycle * 0.2;
-            }
-            
-            const displacement = shapeMorph * expansionPulse * (1 + wave1 + wave2 + wave3 + spiral);
-            
             const nx = ox / r;
             const ny = oy / r;
             const nz = oz / r;
             
-            // Apply transformations
-            const sphereX = nx * r * displacement;
-            const sphereY = ny * r * displacement;
-            const sphereZ = nz * r * displacement;
+            // Calculate different shape targets
+            let shapes = [];
             
-            // Morph between sphere and dispersed positions based on scroll
-            positions[i * 3] = sphereX + (rx - sphereX) * morphProgress;
-            positions[i * 3 + 1] = sphereY + (ry - sphereY) * morphProgress;
-            positions[i * 3 + 2] = sphereZ + (rz - sphereZ) * morphProgress;
+            // Shape 0: Expanding Sphere with waves
+            const wave = Math.sin(oy * 2 + time) * 0.4 + Math.cos(ox * 2 + time * 0.8) * 0.3;
+            shapes[0] = {
+                x: nx * r * (1.2 + wave * 0.3) * expansionScale * breathePulse,
+                y: ny * r * (1.2 + wave * 0.3) * expansionScale * breathePulse,
+                z: nz * r * (1.2 + wave * 0.3) * expansionScale * breathePulse
+            };
+            
+            // Shape 1: Cube - particles snap to cube edges
+            const cubeSize = 6 * expansionScale;
+            const cubeX = Math.sign(nx) * cubeSize * Math.pow(Math.abs(nx), 0.3);
+            const cubeY = Math.sign(ny) * cubeSize * Math.pow(Math.abs(ny), 0.3);
+            const cubeZ = Math.sign(nz) * cubeSize * Math.pow(Math.abs(nz), 0.3);
+            shapes[1] = {
+                x: cubeX * breathePulse,
+                y: cubeY * breathePulse,
+                z: cubeZ * breathePulse
+            };
+            
+            // Shape 2: Octahedron - 8 triangular faces
+            const octSize = 5 * expansionScale;
+            const octTheta = Math.atan2(oz, ox);
+            const octPhi = Math.acos(ny);
+            
+            // Map particles to octahedron surface
+            const topPyramid = octPhi < Math.PI / 2;
+            const signY = topPyramid ? 1 : -1;
+            
+            // Calculate position on octahedron surface
+            const octRadius = Math.abs(Math.cos(octPhi) * 2);
+            const octX = octSize * octRadius * Math.cos(octTheta) * Math.abs(Math.sin(octPhi));
+            const octY = octSize * signY * (1 - octRadius * 0.5);
+            const octZ = octSize * octRadius * Math.sin(octTheta) * Math.abs(Math.sin(octPhi));
+            
+            shapes[2] = {
+                x: octX * breathePulse,
+                y: octY * breathePulse,
+                z: octZ * breathePulse
+            };
+            
+            // Shape 3: Spiral Galaxy
+            const spiralAngle = Math.atan2(oz, ox);
+            const spiralRadius = r * 1.2 * expansionScale;
+            const spiralHeight = oy + Math.sin(spiralAngle * 3 + time) * 2;
+            const spiralSpin = spiralAngle + spiralRadius * 0.3 + time * 0.5;
+            shapes[3] = {
+                x: spiralRadius * Math.cos(spiralSpin) * breathePulse,
+                y: spiralHeight * breathePulse,
+                z: spiralRadius * Math.sin(spiralSpin) * breathePulse
+            };
+            
+            // Shape 4: Wave Field - particles form wave pattern
+            const waveX = ox * 1.5 * expansionScale;
+            const waveZ = oz * 1.5 * expansionScale;
+            const waveY = Math.sin(waveX * 0.5 + time) * 3 + Math.cos(waveZ * 0.5 + time * 0.7) * 3;
+            shapes[4] = {
+                x: waveX * breathePulse,
+                y: waveY * breathePulse,
+                z: waveZ * breathePulse
+            };
+            
+            // Interpolate between current and next shape
+            let targetX, targetY, targetZ;
+            if (currentShape < totalShapes) {
+                const current = shapes[currentShape];
+                const next = shapes[nextShape] || shapes[totalShapes - 1];
+                
+                targetX = current.x + (next.x - current.x) * smoothBlend;
+                targetY = current.y + (next.y - current.y) * smoothBlend;
+                targetZ = current.z + (next.z - current.z) * smoothBlend;
+            } else {
+                const final = shapes[totalShapes - 1];
+                targetX = final.x;
+                targetY = final.y;
+                targetZ = final.z;
+            }
+            
+            // Apply positions with some organic movement
+            const organicWave = Math.sin(time * 2 + i * 0.01) * 0.1 * this.scrollProgress;
+            positions[i * 3] = targetX + organicWave;
+            positions[i * 3 + 1] = targetY + organicWave;
+            positions[i * 3 + 2] = targetZ + organicWave;
         }
 
         this.geometry.attributes.position.needsUpdate = true;
 
-        // Dynamic rotation based on scroll
-        const rotationFactor = 1 - this.scrollProgress * 0.7;
-        const rotationSpeed = 0.002 + Math.sin(time * 0.3) * 0.001;
+        // Dramatic rotation changes per shape
+        const rotationFactor = 1 - this.scrollProgress * 0.5;
+        let autoRotationSpeed = 0.003;
         
-        this.targetRotation.x = this.mouse.y * 0.4 * rotationFactor;
-        this.targetRotation.y = this.mouse.x * 0.4 * rotationFactor;
+        if (currentShape === 1) autoRotationSpeed = 0.006; // Cube spins faster
+        if (currentShape === 2) autoRotationSpeed = 0.004; // Torus moderate
+        if (currentShape === 3) autoRotationSpeed = 0.008; // Galaxy spins fastest
+        if (currentShape === 4) autoRotationSpeed = 0.002; // Wave slower
+        
+        this.targetRotation.x = this.mouse.y * 0.5 * rotationFactor;
+        this.targetRotation.y = this.mouse.x * 0.5 * rotationFactor;
 
-        this.particles.rotation.x += (this.targetRotation.x - this.particles.rotation.x) * 0.03;
-        this.particles.rotation.y += (this.targetRotation.y - this.particles.rotation.y) * 0.03;
-        this.particles.rotation.y += rotationSpeed * rotationFactor;
+        this.particles.rotation.x += (this.targetRotation.x - this.particles.rotation.x) * 0.05;
+        this.particles.rotation.y += (this.targetRotation.y - this.particles.rotation.y) * 0.05;
+        this.particles.rotation.y += autoRotationSpeed;
         
-        // Add some wobble for liveliness
-        this.particles.rotation.z = Math.sin(time * 0.3) * 0.05 * (1 - this.scrollProgress);
+        // Add depth wobble
+        this.particles.rotation.z = Math.sin(time * 0.4) * 0.08 * rotationFactor;
+        
+        // Particle scale pulse effect
+        this.particles.scale.setScalar(1 + Math.sin(time * 1.5) * 0.02);
 
         this.renderer.render(this.scene, this.camera);
     }
@@ -757,57 +1112,383 @@ window.addEventListener('load', function() {
     </script>
     
     <script>
+    // ============================================
+    // SCROLL TIMELINE SYSTEM
+    // ============================================
+    
+    // Initialize scroll timeline after page loads
+    window.addEventListener('load', function() {
+        setTimeout(initScrollTimeline, 3600);
+    });
+    
+    function initScrollTimeline() {
+        const progressBar = document.getElementById('scrollProgressBar');
+        const timeline = document.getElementById('scrollTimeline');
+        const timelineDots = document.querySelectorAll('.timeline-dot');
+        const sections = document.querySelectorAll('.scroll-section');
+        
+        // Update scroll progress bar
+        function updateScrollProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            progressBar.style.width = scrollPercent + '%';
+            
+            // Show timeline after scrolling past hero
+            if (scrollTop > 300) {
+                timeline.classList.add('active');
+            } else {
+                timeline.classList.remove('active');
+            }
+        }
+        
+        // Update active timeline dot based on scroll position
+        function updateActiveSection() {
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 200;
+                const sectionHeight = section.offsetHeight;
+                const scrollPos = window.scrollY;
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    currentSection = section.id;
+                }
+            });
+            
+            // Check if at hero
+            if (window.scrollY < 300) {
+                currentSection = 'hero';
+            }
+            
+            timelineDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-target') === currentSection) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+        
+        // Click handler for timeline dots
+        timelineDots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    const offsetTop = targetId === 'hero' ? 0 : targetElement.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Scroll event listener
+        window.addEventListener('scroll', function() {
+            updateScrollProgress();
+            updateActiveSection();
+        });
+        
+        // Initial update
+        updateScrollProgress();
+        updateActiveSection();
+        
+        // ============================================
+        // GSAP SCROLL TRIGGER ANIMATIONS
+        // ============================================
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Add animate-in class to sections initially
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            // Only add animation class if section is below viewport
+            if (rect.top > window.innerHeight) {
+                section.classList.add('animate-in');
+            }
+        });
+        
+        // Animate sections on scroll
+        sections.forEach((section, index) => {
+            if (section.classList.contains('animate-in')) {
+                gsap.to(section, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 80%",
+                        end: "top 20%",
+                        toggleActions: "play none none reverse",
+                        onEnter: () => section.classList.remove('animate-in')
+                    }
+                });
+            }
+        });
+        
+        // Animate cards with stagger effect
+        const cardSelectors = ['.card', '.service-card', '.value-card', '.project-card'];
+        cardSelectors.forEach(selector => {
+            const cards = document.querySelectorAll(selector);
+            if (cards.length > 0) {
+                gsap.from(cards, {
+                    y: 80,
+                    opacity: 0,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: cards[0].closest('.section'),
+                        start: "top 70%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            }
+        });
+        
+        // Animate section headers
+        const sectionHeaders = document.querySelectorAll('.section-header');
+        sectionHeaders.forEach(header => {
+            gsap.from(header, {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: header,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+        
+        // Parallax effect for hero background
+        gsap.to('.hero-bg', {
+            y: () => window.innerHeight * 0.5,
+            ease: "none",
+            scrollTrigger: {
+                trigger: '.hero',
+                start: "top top",
+                end: "bottom top",
+                scrub: 1
+            }
+        });
+        
+        // Scale and fade particle canvas as you scroll
+        gsap.to('#particle-canvas', {
+            opacity: 0.3,
+            scale: 1.2,
+            ease: "none",
+            scrollTrigger: {
+                trigger: 'body',
+                start: "top top",
+                end: "2000px top",
+                scrub: 1
+            }
+        });
+        
+        // Animate timeline dots appearance
+        gsap.from('.timeline-dot', {
+            x: 50,
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "back.out(1.7)",
+            delay: 0.5
+        });
+    }
+    
     // Splash Screen
     window.addEventListener('load',function(){setTimeout(function(){var s=document.getElementById('splash');s.classList.add('exit');setTimeout(function(){s.style.display='none'},1000)},3500)});
     // Navbar scroll
     window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)});
-    // Mobile nav
-    function toggleNav(){document.getElementById('navMenu').classList.toggle('show')}
-    function closeNav(){document.getElementById('navMenu').classList.remove('show')}
+    // Mobile nav - Side drawer style
+    function toggleNav(){
+        const navMenu = document.getElementById('navMenu');
+        const navOverlay = document.getElementById('navOverlay');
+        const body = document.body;
+        if(navMenu.classList.contains('show')) {
+            navMenu.classList.remove('show');
+            navOverlay.classList.remove('show');
+            body.classList.remove('modal-open');
+        } else {
+            navMenu.classList.add('show');
+            navOverlay.classList.add('show');
+            body.classList.add('modal-open');
+        }
+    }
+    function closeNav(){
+        document.getElementById('navMenu').classList.remove('show');
+        document.getElementById('navOverlay').classList.remove('show');
+        document.body.classList.remove('modal-open');
+    }
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)window.scrollTo({top:t.offsetTop-80,behavior:'smooth'})})});
     // Reveal animations
     function checkReveal(){document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight-80)el.classList.add('active')})}
     window.addEventListener('scroll',checkReveal);window.addEventListener('load',checkReveal);
     
-    // Projects Auto Slider
-    const projectsSlider = document.querySelector('.projects-slider');
+    // ============================================
+    // CAROUSEL FUNCTIONALITY
+    // ============================================
+    const carousels = {};
     
-    if(projectsSlider) {
-        let scrollAmount = 0;
-        const slideWidth = 380;
-        let scrollDirection = 1;
-        let isScrolling = false;
+    function initCarousel(carouselId, dotsId) {
+        const track = document.getElementById(carouselId);
+        if (!track) return;
         
-        // Auto-slide function
-        function autoSlide() {
-            if(isScrolling) return;
-            
-            const maxScroll = projectsSlider.scrollWidth - projectsSlider.clientWidth;
-            
-            // Check if we need to reverse direction
-            if(projectsSlider.scrollLeft >= maxScroll && scrollDirection === 1) {
-                scrollDirection = -1;
-            } else if(projectsSlider.scrollLeft <= 0 && scrollDirection === -1) {
-                scrollDirection = 1;
+        const cards = track.querySelectorAll('.service-card');
+        const dotsContainer = document.getElementById(dotsId);
+        
+        if (cards.length === 0) return;
+        
+        carousels[carouselId] = {
+            track: track,
+            cards: cards,
+            currentIndex: 0,
+            cardWidth: cards[0].offsetWidth + 24, // card width + gap
+            totalCards: cards.length,
+            isPlaying: true,
+            touchStartX: 0,
+            touchEndX: 0
+        };
+        
+        // Create dots
+        if (dotsContainer) {
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < cards.length; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                dot.onclick = () => goToSlide(carouselId, i);
+                dotsContainer.appendChild(dot);
             }
-            
-            // Scroll
-            projectsSlider.scrollBy({left: slideWidth * scrollDirection, behavior: 'smooth'});
         }
         
-        // Start auto-sliding every 3 seconds
-        const autoSlideInterval = setInterval(autoSlide, 3000);
-        
-        // Pause auto-slide on hover
-        projectsSlider.addEventListener('mouseenter', function() {
-            isScrolling = true;
+        // Touch events for swipe
+        track.addEventListener('touchstart', (e) => {
+            carousels[carouselId].touchStartX = e.touches[0].clientX;
         });
         
-        projectsSlider.addEventListener('mouseleave', function() {
-            isScrolling = false;
+        track.addEventListener('touchend', (e) => {
+            carousels[carouselId].touchEndX = e.changedTouches[0].clientX;
+            handleSwipe(carouselId);
+        });
+        
+        // Mouse events for drag (optional)
+        let isDragging = false;
+        let startX = 0;
+        
+        track.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            track.style.cursor = 'grabbing';
+        });
+        
+        track.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+        });
+        
+        track.addEventListener('mouseup', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            track.style.cursor = 'grab';
+            const endX = e.clientX;
+            const diff = startX - endX;
+            if (Math.abs(diff) > 50) {
+                slideCarousel(carouselId, diff > 0 ? 1 : -1);
+            }
+        });
+        
+        track.addEventListener('mouseleave', () => {
+            if (isDragging) {
+                isDragging = false;
+                track.style.cursor = 'grab';
+            }
+        });
+        
+        // Pause on hover
+        track.addEventListener('mouseenter', () => {
+            carousels[carouselId].isPlaying = false;
+        });
+        
+        track.addEventListener('mouseleave', () => {
+            carousels[carouselId].isPlaying = true;
         });
     }
+    
+    function handleSwipe(carouselId) {
+        const carousel = carousels[carouselId];
+        const diff = carousel.touchStartX - carousel.touchEndX;
+        
+        if (Math.abs(diff) > 50) {
+            slideCarousel(carouselId, diff > 0 ? 1 : -1);
+        }
+    }
+    
+    function slideCarousel(carouselId, direction) {
+        const carousel = carousels[carouselId];
+        if (!carousel) return;
+        
+        carousel.currentIndex += direction;
+        
+        // Loop around
+        if (carousel.currentIndex < 0) {
+            carousel.currentIndex = carousel.totalCards - 1;
+        } else if (carousel.currentIndex >= carousel.totalCards) {
+            carousel.currentIndex = 0;
+        }
+        
+        updateCarousel(carouselId);
+    }
+    
+    function goToSlide(carouselId, index) {
+        const carousel = carousels[carouselId];
+        if (!carousel) return;
+        
+        carousel.currentIndex = index;
+        updateCarousel(carouselId);
+    }
+    
+    function updateCarousel(carouselId) {
+        const carousel = carousels[carouselId];
+        if (!carousel) return;
+        
+        const offset = -carousel.currentIndex * carousel.cardWidth;
+        carousel.track.style.transform = `translateX(${offset}px)`;
+        
+        // Update dots
+        const dotsId = carouselId.replace('-carousel', '-dots');
+        const dotsContainer = document.getElementById(dotsId);
+        if (dotsContainer) {
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === carousel.currentIndex);
+            });
+        }
+    }
+    
+    function autoPlayCarousels() {
+        Object.keys(carousels).forEach(carouselId => {
+            const carousel = carousels[carouselId];
+            if (carousel.isPlaying) {
+                slideCarousel(carouselId, 1);
+            }
+        });
+    }
+    
+    // Initialize carousels after page load
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            initCarousel('services-carousel', 'services-dots');
+            initCarousel('products-carousel', 'products-dots');
+            
+            // Auto-play every 4 seconds
+            setInterval(autoPlayCarousels, 4000);
+        }, 100);
+    });
     </script>
 </body>
 </html>

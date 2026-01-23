@@ -244,6 +244,9 @@
                 <a href="{{ route('admin.our-clients.index') }}" class="nav-link {{ request()->routeIs('admin.our-clients.*') ? 'active' : '' }}">
                     <i class="bi bi-building"></i> Our Clients
                 </a>
+                <a href="{{ route('admin.client-images.index') }}" class="nav-link {{ request()->routeIs('admin.client-images.*') ? 'active' : '' }}">
+                    <i class="bi bi-images"></i> Client Gallery
+                </a>
                 
                 <div class="sidebar-heading">Inquiries</div>
                 <a href="{{ route('admin.contacts.index') }}" class="nav-link {{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">

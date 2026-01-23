@@ -11,6 +11,8 @@ use App\Models\Service;
 use App\Models\SiteSetting;
 use App\Models\OurClient;
 use App\Models\Contact;
+use App\Models\Product;
+use App\Models\OurClientImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -26,10 +28,13 @@ class FrontendController extends Controller
             'workSteps' => WorkStep::active()->ordered()->get(),
             'services' => Service::active()->ordered()->get(),
             'projects' => FeaturedWork::active()->ordered()->get(),
+            'products' => Product::active()->ordered()->get(),
             'clients' => OurClient::active()->ordered()->get(),
+            'clientImages' => OurClientImage::active()->ordered()->get(),
             'settings' => SiteSetting::getAllGrouped(),
         ];
 
+       
         return view('frontend.home', $data);
     }
 

@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\OurClientController; 
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Admin\BillController as AdminBillController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Client\DashboardController as ClientDashboard;
 use App\Http\Controllers\Client\ProjectController as ClientProjectController;
 use App\Http\Controllers\Client\BillController as ClientBillController;
@@ -68,11 +69,13 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
     
     // Website Content Management
     Route::resource('our-clients', OurClientController::class);
+    Route::resource('client-images', \App\Http\Controllers\Admin\OurClientImageController::class);
     Route::resource('hero-slides', HeroSlideController::class);
     Route::resource('featured-works', FeaturedWorkController::class);
     Route::resource('values', ValueController::class);
     Route::resource('work-steps', WorkStepController::class);
     Route::resource('services', ServiceController::class);
+    Route::resource('products', ProductController::class);
     Route::resource('contacts', ContactController::class)->except(['create', 'store', 'edit']);
     
     // About Page
