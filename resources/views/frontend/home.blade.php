@@ -108,17 +108,34 @@ padding:10px 0}
 .nav-subsidiary svg{width:18px;height:18px}
 .btn-login{display:flex;align-items:center;gap:8px;padding:10px 20px;
 background:linear-gradient(135deg,var(--secondary),var(--secondary-light));
-color:var(--white);font-size:0.85rem;font-weight:600;border-radius:0px;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(170,19,74,0.3)}
-.btn-login:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(170,19,74,0.4)}
+color:var(--white);font-size:0.85rem;font-weight:600;border-radius:0px;transition:all 0.3s ease;
+/* box-shadow:0 4px 15px rgba(170,19,74,0.3) */
+}
+.btn-login:hover{transform:translateY(-2px);
+/* box-shadow:0 6px 20px rgba(170,19,74,0.4) */
+}
 .btn-login i{font-size:1.1rem}
 .navbar-toggle{display:none;width:44px;height:44px;
-background:rgb(170 19 74);
+/* background:rgb(170 19 74); */
+background: transparent;
 border:none;border-radius:0;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;transition:all 0.3s ease}
-.navbar.scrolled .navbar-toggle{background:rgb(170 19 74)}
-.navbar-toggle:hover{background:var(--secondary)}
-.navbar-toggle span{display:block;width:22px;height:2px;background:var(--white);transition:all 0.3s ease}
-.navbar.scrolled .navbar-toggle span{background:var(--white)}
-.navbar-toggle:hover span{background:var(--white)}
+.navbar.scrolled .navbar-toggle{
+    /* background:rgb(170 19 74) */
+    background: transparent;
+}
+.navbar-toggle:hover{
+    /* background:var(--secondary) */
+}
+.navbar-toggle span{display:block;width:22px;height:2px;
+/* background:var(--white); */
+background: transparent;
+transition:all 0.3s ease}
+.navbar.scrolled .navbar-toggle span{
+    /* background:var(--white) */
+}
+.navbar-toggle:hover span{
+    /* background:var(--white) */
+}
 @media(max-width:991px){
 .navbar-toggle{display:flex}
 .navbar-nav{position:fixed;top:0;right:-400px;width:400px;max-width:85vw;height:100vh;
@@ -257,8 +274,10 @@ body.modal-open{overflow:hidden}
 .steps-container::before{content:'';position:absolute;top:35px;left:15%;right:15%;height:3px;background:linear-gradient(90deg,var(--secondary),var(--third));z-index:0;border-radius:2px}
 @media(max-width:768px){.steps-container::before{display:none}}
 .step{flex:1;min-width:150px;max-width:200px;text-align:center;position:relative;z-index:1}
-.step-number{width:70px;height:70px;border-radius:0;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:var(--white);font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;box-shadow:0 8px 25px rgba(0,19,72,0.3);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);border:2px solid var(--white)}
-.step:hover .step-number{transform:scale(1.15);background:linear-gradient(135deg,var(--secondary),var(--third))}
+.step-number{width:44px;height:44px;border-radius:0;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:var(--third);font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;box-shadow:0 8px 25px rgba(0,19,72,0.3);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);border:2px solid var(--white)}
+.step:hover .step-number{transform:scale(1.15);
+/* background:linear-gradient(135deg,var(--secondary),var(--third)) */
+}
 .step h6{font-size:1rem;margin-bottom:0.4rem;color:#fff}
 .step p{font-size:0.85rem;color:rgba(255,255,255,0.6);margin:0}
 
@@ -291,7 +310,9 @@ transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);position:relative;overflow:hi
 .service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--secondary),var(--third));transform:scaleX(0);transition:transform 0.4s ease}
 .service-card:hover{border-color:var(--third);
 /* box-shadow:0 10px 40px rgba(203,148,48,0.4); */
-transform:translateY(-5px);background:rgba(255,255,255,0.2)}
+transform:translateY(-5px);
+/* background:rgba(255,255,255,0.2) */
+}
 .service-card:hover::after{transform:scaleX(1)}
 .service-card i{font-size:2.25rem;color:var(--third);margin-bottom:1rem;display:block;transition:all 0.4s ease}
 .service-card:hover i{transform:scale(1.1);color:var(--third);filter:brightness(1.3)}
@@ -421,11 +442,19 @@ transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);z-index:1000;display:flex;ali
         <!-- <p class="splash-tagline">Building Digital Excellence</p> -->
         <div class="splash-loader"></div>
     </div>
-
+<style>
+    @media (min-width: 768px) {
+        .navbar-brand {
+            display: block !important;
+        }
+    }
+</style>
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
         <div class="container">
-            <a href="/" class="navbar-brand"><img src="{{ asset('img/logo.png') }}" alt="{{ $siteName }}"></a>
+<a href="/" class="navbar-brand" style="display: none;">
+    <img src="{{ asset('img/logo.png') }}" alt="{{ $siteName }}">
+</a>
             <ul class="navbar-nav" id="navMenu">
                 <!-- <button class="nav-close" onclick="closeNav()"><i class="bi bi-x-lg"></i></button> -->
                 <li class="nav-menu-item"><a href="#about" class="nav-link" onclick="closeNav()"><span class="nav-link-title">
@@ -442,7 +471,9 @@ transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);z-index:1000;display:flex;ali
                 </span><span class="nav-link-text">Our Work</span></a></li>
                 <li><a href="/login" class="btn-login"><i class="bi bi-person-circle"></i> Login</a></li>
             </ul>
-            <button class="navbar-toggle" onclick="toggleNav()"><span></span><span></span><span></span></button>
+            <button class="navbar-toggle" onclick="toggleNav()">
+    <img src="{{ asset('img/logo.png') }}" alt="{{ $siteName }}" class="toggle-logo">
+</button>
             
         </div>
     </nav>
@@ -538,7 +569,7 @@ transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);z-index:1000;display:flex;ali
                     </button> -->
                     <div class="carousel-track" id="services-carousel">
                         @foreach($services as $i => $service)
-                        <div class="service-card bg-gray" style="opacity: 1.0429;">
+                        <div class="service-card  " style="opacity: 1.0429;">
                             <i class="{{ $service->icon ?? 'bi bi-gear' }}"></i>
                             <h5>{{ $service->title }}</h5>
                             <p>{{ $service->description }}</p>
